@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="./assets/"
+    data-template="vertical-menu-template-free">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Absensi Siswa - Sistem Sekolah | Sneat</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="./assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="./assets/js/config.js"></script>
+    <style>
+        .status-radio-group .btn-check:checked+.btn-outline-success {
+            background-color: #71dd37;
+            color: #fff;
+        }
+
+        .status-radio-group .btn-check:checked+.btn-outline-warning {
+            background-color: #ffab00;
+            color: #fff;
+        }
+
+        .status-radio-group .btn-check:checked+.btn-outline-danger {
+            background-color: #ff3e1d;
+            color: #fff;
+        }
+
+        .status-radio-group .btn-check:checked+.btn-outline-info {
+            background-color: #03c3ec;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo"><a href="index.html" class="app-brand-link"><span
+                            class="app-brand-text demo menu-text fw-bolder ms-2">Sistem Sekolah</span></a></div>
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Dashboard">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <!-- Masters -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Data Induk</span></li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-data"></i>
+                            <div data-i18n="Data Induk">Data Induk</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="master-guru.html" class="menu-link">
+                                    <div data-i18n="Guru">Guru</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-kelas.html" class="menu-link">
+                                    <div data-i18n="Kelas">Kelas</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-siswa.html" class="menu-link">
+                                    <div data-i18n="Siswa">Siswa</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-mapel.html" class="menu-link">
+                                    <div data-i18n="Mata Pelajaran">Mata Pelajaran</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-jam.html" class="menu-link">
+                                    <div data-i18n="Jam Pelajaran">Jam Pelajaran</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Akademik -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Akademik</span></li>
+                    <li class="menu-item">
+                        <a href="akademik-jadwal.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar-event"></i>
+                            <div data-i18n="Jadwal Mengajar">Jadwal Mengajar</div>
+                        </a>
+                    </li>
+
+                    <!-- Absensi -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Absensi</span></li>
+                    <li class="menu-item">
+                        <a href="absensi-guru.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-check"></i>
+                            <div data-i18n="Absensi Guru">Absensi Guru</div>
+                        </a>
+                    </li>
+                    <li class="menu-item active">
+                        <a href="absensi-siswa.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-group"></i>
+                            <div data-i18n="Absensi Siswa">Absensi Siswa</div>
+                        </a>
+                    </li>
+
+                    <!-- Jurnal -->
+                    <li class="menu-item">
+                        <a href="jurnal-mengajar.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-content"></i>
+                            <div data-i18n="Jurnal Mengajar">Jurnal Mengajar</div>
+                        </a>
+                    </li>
+
+                    <!-- Laporan -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan</span></li>
+                    <li class="menu-item">
+                        <a href="laporan-rekap.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-file"></i>
+                            <div data-i18n="Rekap Laporan">Rekap Laporan</div>
+                        </a>
+                    </li>
+
+                    <!-- Pengaturan -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengaturan</span></li>
+                    <li class="menu-item">
+                        <a href="pengaturan.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cog"></i>
+                            <div data-i18n="Konfigurasi">Konfigurasi</div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <div class="layout-page">
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                    id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none"><a
+                            class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)"><i
+                                class="bx bx-menu bx-sm"></i></a></div>
+                    <div class="navbar-nav-right d-flex align-items-center">
+                        <h4 class="fw-bold mb-0">Absensi Siswa</h4>
+                    </div>
+                </nav>
+
+                <div class="content-wrapper">
+                    <!-- Page 1: Pilih Jadwal (Hidden when filling) -->
+                    <div id="pilihJadwal" class="container-xxl flex-grow-1 container-p-y">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0">Pilih Jadwal Mengajar Hari Ini</h5>
+                            </div>
+                            <div class="table-responsive text-nowrap">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Jam</th>
+                                            <th>Kelas</th>
+                                            <th>Mata Pelajaran</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>07:30 - 09:00</td>
+                                            <td>X-A</td>
+                                            <td>Matematika</td>
+                                            <td><span class="badge bg-label-danger">Belum Diisi</span></td>
+                                            <td><button class="btn btn-primary btn-sm" onclick="showFormAbsensi()">Isi
+                                                    Absensi</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>09:15 - 10:45</td>
+                                            <td>XI-IPA 1</td>
+                                            <td>Fisika</td>
+                                            <td><span class="badge bg-label-success">Lengkap</span></td>
+                                            <td><button class="btn btn-outline-secondary btn-sm"
+                                                    onclick="showFormAbsensi()">Ubah</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Page 2: Form Absensi (Hidden by default) -->
+                    <div id="formAbsensi" class="container-xxl flex-grow-1 container-p-y d-none">
+                        <div class="card">
+                            <div
+                                class="card-header d-flex justify-content-between align-items-center border-bottom mb-3">
+                                <div>
+                                    <h5 class="mb-0">Form Absensi: <span class="text-primary">X-A - Matematika</span>
+                                    </h5>
+                                    <small class="text-muted">Senin, Jam Ke 1-2</small>
+                                </div>
+                                <button class="btn btn-outline-primary btn-sm" onclick="bulkHadir()">Set Terpilih
+                                    Hadir</button>
+                            </div>
+                            <div class="table-responsive text-nowrap">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nama Siswa</th>
+                                            <th>Status Kehadiran</th>
+                                            <th>Keterangan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td><strong>Achmad Fauzi</strong></td>
+                                            <td>
+                                                <div class="btn-group status-radio-group" role="group">
+                                                    <input type="radio" class="btn-check" name="status1" id="h1"
+                                                        checked>
+                                                    <label class="btn btn-outline-success btn-sm" for="h1">H</label>
+                                                    <input type="radio" class="btn-check" name="status1" id="i1">
+                                                    <label class="btn btn-outline-info btn-sm" for="i1">I</label>
+                                                    <input type="radio" class="btn-check" name="status1" id="s1">
+                                                    <label class="btn btn-outline-warning btn-sm" for="s1">S</label>
+                                                    <input type="radio" class="btn-check" name="status1" id="a1">
+                                                    <label class="btn btn-outline-danger btn-sm" for="a1">A</label>
+                                                </div>
+                                            </td>
+                                            <td><input type="text" class="form-control form-control-sm"
+                                                    placeholder="Catatan..."></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td><strong>Aditya Wijaya</strong></td>
+                                            <td>
+                                                <div class="btn-group status-radio-group" role="group">
+                                                    <input type="radio" class="btn-check" name="status2" id="h2"
+                                                        checked>
+                                                    <label class="btn btn-outline-success btn-sm" for="h2">H</label>
+                                                    <input type="radio" class="btn-check" name="status2" id="i2">
+                                                    <label class="btn btn-outline-info btn-sm" for="i2">I</label>
+                                                    <input type="radio" class="btn-check" name="status2" id="s2">
+                                                    <label class="btn btn-outline-warning btn-sm" for="s2">S</label>
+                                                    <input type="radio" class="btn-check" name="status2" id="a2">
+                                                    <label class="btn btn-outline-danger btn-sm" for="a2">A</label>
+                                                </div>
+                                            </td>
+                                            <td><input type="text" class="form-control form-control-sm"
+                                                    placeholder="Catatan..."></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="card-footer border-top d-flex justify-content-between mt-3">
+                                <button class="btn btn-outline-secondary" onclick="hideFormAbsensi()">Kembali</button>
+                                <button class="btn btn-primary"
+                                    onclick="alert('Berhasil disimpan!'); hideFormAbsensi();">Simpan Absensi</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <footer class="content-footer footer bg-footer-theme">
+                        <div
+                            class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                            <div class="mb-2 mb-md-0">
+                                ©
+                                <script>document.write(new Date().getFullYear());</script> Sistem Sekolah
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="footer-link me-4">License</a>
+                                <a href="javascript:void(0)" class="footer-link me-4">Documentation</a>
+                                <a href="javascript:void(0)" class="footer-link me-4">Support</a>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- / Footer -->
+                    <div class="content-backdrop fade"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function showFormAbsensi() {
+            document.getElementById('pilihJadwal').classList.add('d-none');
+            document.getElementById('formAbsensi').classList.remove('d-none');
+        }
+        function hideFormAbsensi() {
+            document.getElementById('formAbsensi').classList.add('d-none');
+            document.getElementById('pilihJadwal').classList.remove('d-none');
+        }
+        function bulkHadir() {
+            alert('Semua siswa diatur Hadir');
+        }
+    </script>
+    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="./assets/vendor/libs/popper/popper.js"></script>
+    <script src="./assets/vendor/js/bootstrap.js"></script>
+    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="./assets/vendor/js/menu.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

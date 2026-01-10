@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="./assets/"
+    data-template="vertical-menu-template-free">
+
+<head>
+    <!-- Head same as others -->
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Master Siswa - Sistem Sekolah | Sneat</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="./assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="./assets/js/config.js"></script>
+</head>
+
+<body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <!-- Menu same as others -->
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo"><a href="index.html" class="app-brand-link"><span
+                            class="app-brand-text demo menu-text fw-bolder ms-2">Sistem Sekolah</span></a></div>
+                <div class="menu-inner-shadow"></div>
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Dashboard">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <!-- Masters -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Data Induk</span></li>
+                    <li class="menu-item active open">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-data"></i>
+                            <div data-i18n="Data Induk">Data Induk</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="master-guru.html" class="menu-link">
+                                    <div data-i18n="Guru">Guru</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-kelas.html" class="menu-link">
+                                    <div data-i18n="Kelas">Kelas</div>
+                                </a>
+                            </li>
+                            <li class="menu-item active">
+                                <a href="master-siswa.html" class="menu-link">
+                                    <div data-i18n="Siswa">Siswa</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-mapel.html" class="menu-link">
+                                    <div data-i18n="Mata Pelajaran">Mata Pelajaran</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-jam.html" class="menu-link">
+                                    <div data-i18n="Jam Pelajaran">Jam Pelajaran</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Akademik -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Akademik</span></li>
+                    <li class="menu-item">
+                        <a href="akademik-jadwal.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar-event"></i>
+                            <div data-i18n="Jadwal Mengajar">Jadwal Mengajar</div>
+                        </a>
+                    </li>
+
+                    <!-- Absensi -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Absensi</span></li>
+                    <li class="menu-item">
+                        <a href="absensi-guru.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-check"></i>
+                            <div data-i18n="Absensi Guru">Absensi Guru</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="absensi-siswa.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-group"></i>
+                            <div data-i18n="Absensi Siswa">Absensi Siswa</div>
+                        </a>
+                    </li>
+
+                    <!-- Jurnal -->
+                    <li class="menu-item">
+                        <a href="jurnal-mengajar.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-content"></i>
+                            <div data-i18n="Jurnal Mengajar">Jurnal Mengajar</div>
+                        </a>
+                    </li>
+
+                    <!-- Laporan -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan</span></li>
+                    <li class="menu-item">
+                        <a href="laporan-rekap.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-file"></i>
+                            <div data-i18n="Rekap Laporan">Rekap Laporan</div>
+                        </a>
+                    </li>
+
+                    <!-- Pengaturan -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengaturan</span></li>
+                    <li class="menu-item">
+                        <a href="pengaturan.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cog"></i>
+                            <div data-i18n="Konfigurasi">Konfigurasi</div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <div class="layout-page">
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                    id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none"><a
+                            class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)"><i
+                                class="bx bx-menu bx-sm"></i></a></div>
+                    <div class="navbar-nav-right d-flex align-items-center">
+                        <h4 class="fw-bold mb-0">Master Siswa</h4>
+                    </div>
+                </nav>
+
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5 class="mb-0">Daftar Siswa</h5>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#modalSiswa"
+                                        onclick="document.getElementById('titleModalSiswa').innerText='Tambah Siswa Baru';"><i
+                                            class="bx bx-plus me-1"></i> Tambah Siswa</button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-3"><input type="text" class="form-control"
+                                            placeholder="Cari NIS / Nama..."></div>
+                                    <div class="col-md-3">
+                                        <select class="form-select">
+                                            <option value="">Semua Kelas</option>
+                                            <option value="VII-A">VII-A</option>
+                                            <option value="VIII-1">VIII-1</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2"><button class="btn btn-primary w-100">Filter</button></div>
+                                    <div class="col-md-4 text-end">
+                                        <div class="dropdown">
+                                            <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                                                data-bs-toggle="dropdown">Massal</button>
+                                            <ul class="dropdown-menu">
+                                                <li><a class="dropdown-item" href="#">Naik Kelas</a></li>
+                                                <li><a class="dropdown-item" href="#">Lulus</a></li>
+                                                <li><a class="dropdown-item text-danger" href="#">Hapus Terpilih</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="table-responsive text-nowrap">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th><input class="form-check-input" type="checkbox"></th>
+                                            <th>NIS</th>
+                                            <th>Nama Siswa</th>
+                                            <th>L/P</th>
+                                            <th>Kelas</th>
+                                            <th>Status</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-border-bottom-0">
+                                        <tr>
+                                            <td><input class="form-check-input" type="checkbox"></td>
+                                            <td>2023001</td>
+                                            <td><strong>Achmad Fauzi</strong></td>
+                                            <td>L</td>
+                                            <td>VII-A</td>
+                                            <td><span class="badge bg-label-success">Aktif</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-icon btn-outline-warning"
+                                                    data-bs-toggle="modal" data-bs-target="#modalSiswa"><i
+                                                        class="bx bx-edit"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal Siswa -->
+                    <div class="modal fade" id="modalSiswa" tabindex="-1" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="titleModalSiswa">Tambah Siswa Baru</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row g-2">
+                                        <div class="col mb-3"><label class="form-label">NIS</label><input type="text"
+                                                class="form-control" placeholder="Nomor Induk Siswa"></div>
+                                        <div class="col mb-3"><label class="form-label">Nama Lengkap</label><input
+                                                type="text" class="form-control" placeholder="Nama Lengkap Siswa"></div>
+                                    </div>
+                                    <div class="row g-2">
+                                        <div class="col mb-3">
+                                            <label class="form-label">Gender</label>
+                                            <select class="form-select">
+                                                <option value="L">Laki-laki</option>
+                                                <option value="P">Perempuan</option>
+                                            </select>
+                                        </div>
+                                        <div class="col mb-3">
+                                            <label class="form-label">Kelas</label>
+                                            <select class="form-select">
+                                                <option value="VII-A">VII-A</option>
+                                                <option value="VIII-1">VIII-1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3"><label class="form-label">Alamat</label><textarea
+                                            class="form-control" rows="2"></textarea></div>
+                                </div>
+                                <div class="modal-footer"><button type="button" class="btn btn-outline-secondary"
+                                        data-bs-dismiss="modal">Batal</button><button type="button"
+                                        class="btn btn-primary">Simpan Siswa</button></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <footer class="content-footer footer bg-footer-theme">
+                        <div
+                            class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                            <div class="mb-2 mb-md-0">
+                                ©
+                                <script>document.write(new Date().getFullYear());</script> Sistem Sekolah
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="footer-link me-4">License</a>
+                                <a href="javascript:void(0)" class="footer-link me-4">Documentation</a>
+                                <a href="javascript:void(0)" class="footer-link me-4">Support</a>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- / Footer -->
+                    <div class="content-backdrop fade"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="./assets/vendor/libs/popper/popper.js"></script>
+    <script src="./assets/vendor/js/bootstrap.js"></script>
+    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="./assets/vendor/js/menu.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="./assets/"
+    data-template="vertical-menu-template-free">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Rekap Laporan - Sistem Sekolah | Sneat</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="./assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="./assets/js/config.js"></script>
+</head>
+
+<body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo"><a href="index.html" class="app-brand-link"><span
+                            class="app-brand-text demo menu-text fw-bolder ms-2">Sistem Sekolah</span></a></div>
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Dashboard">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <!-- Masters -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Data Induk</span></li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-data"></i>
+                            <div data-i18n="Data Induk">Data Induk</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="master-guru.html" class="menu-link">
+                                    <div data-i18n="Guru">Guru</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-kelas.html" class="menu-link">
+                                    <div data-i18n="Kelas">Kelas</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-siswa.html" class="menu-link">
+                                    <div data-i18n="Siswa">Siswa</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-mapel.html" class="menu-link">
+                                    <div data-i18n="Mata Pelajaran">Mata Pelajaran</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-jam.html" class="menu-link">
+                                    <div data-i18n="Jam Pelajaran">Jam Pelajaran</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Akademik -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Akademik</span></li>
+                    <li class="menu-item">
+                        <a href="akademik-jadwal.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar-event"></i>
+                            <div data-i18n="Jadwal Mengajar">Jadwal Mengajar</div>
+                        </a>
+                    </li>
+
+                    <!-- Absensi -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Absensi</span></li>
+                    <li class="menu-item">
+                        <a href="absensi-guru.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-check"></i>
+                            <div data-i18n="Absensi Guru">Absensi Guru</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="absensi-siswa.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-group"></i>
+                            <div data-i18n="Absensi Siswa">Absensi Siswa</div>
+                        </a>
+                    </li>
+
+                    <!-- Jurnal -->
+                    <li class="menu-item">
+                        <a href="jurnal-mengajar.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-content"></i>
+                            <div data-i18n="Jurnal Mengajar">Jurnal Mengajar</div>
+                        </a>
+                    </li>
+
+                    <!-- Laporan -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan</span></li>
+                    <li class="menu-item active">
+                        <a href="laporan-rekap.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-file"></i>
+                            <div data-i18n="Rekap Laporan">Rekap Laporan</div>
+                        </a>
+                    </li>
+
+                    <!-- Pengaturan -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengaturan</span></li>
+                    <li class="menu-item">
+                        <a href="pengaturan.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cog"></i>
+                            <div data-i18n="Konfigurasi">Konfigurasi</div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <div class="layout-page">
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                    id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none"><a
+                            class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)"><i
+                                class="bx bx-menu bx-sm"></i></a></div>
+                    <div class="navbar-nav-right d-flex align-items-center">
+                        <h4 class="fw-bold mb-0">Rekap Laporan Pembelajaran</h4>
+                    </div>
+                </nav>
+
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="card mb-4">
+                            <div class="card-body">
+                                <form class="row g-3">
+                                    <div class="col-md-3">
+                                        <label class="form-label">Rentang Tanggal</label>
+                                        <div class="input-group">
+                                            <input type="date" class="form-control">
+                                            <input type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="form-label">Kelas</label>
+                                        <select class="form-select">
+                                            <option value="">Semua</option>
+                                            <option>X-A</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="form-label">Guru</label>
+                                        <select class="form-select">
+                                            <option value="">Semua Guru</option>
+                                            <option>Budi Santoso</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2 d-flex align-items-end"><button type="submit"
+                                            class="btn btn-primary w-100">Filter</button></div>
+                                    <div class="col-md-2 d-flex align-items-end"><button type="button"
+                                            class="btn btn-outline-success w-100">Export</button></div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="row mb-4">
+                            <div class="col-md-4">
+                                <div class="card bg-primary text-white">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-white">Total Jam Mengajar</h6>
+                                        <h3 class="card-text text-white">120 Jam</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-success text-white">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-white">Rata-rata Kehadiran</h6>
+                                        <h3 class="card-text text-white">98.2%</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card bg-info text-white">
+                                    <div class="card-body">
+                                        <h6 class="card-title text-white">Jurnal Terisi</h6>
+                                        <h3 class="card-text text-white">115 / 120</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="table-responsive text-nowrap">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Tanggal</th>
+                                            <th>Kelas</th>
+                                            <th>Mapel</th>
+                                            <th>Guru</th>
+                                            <th>Siswa (H/I/S/A)</th>
+                                            <th>Jurnal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>05/01/2026</td>
+                                            <td>X-A</td>
+                                            <td>MTK</td>
+                                            <td>Budi S.</td>
+                                            <td>30/1/1/0</td>
+                                            <td><span class="badge bg-label-success">Submitted</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Footer -->
+                        <footer class="content-footer footer bg-footer-theme">
+                            <div
+                                class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                                <div class="mb-2 mb-md-0">
+                                    ©
+                                    <script>document.write(new Date().getFullYear());</script> Sistem Sekolah
+                                </div>
+                                <div>
+                                    <a href="javascript:void(0)" class="footer-link me-4">License</a>
+                                    <a href="javascript:void(0)" class="footer-link me-4">Documentation</a>
+                                    <a href="javascript:void(0)" class="footer-link me-4">Support</a>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- / Footer -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="./assets/vendor/libs/popper/popper.js"></script>
+    <script src="./assets/vendor/js/bootstrap.js"></script>
+    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="./assets/vendor/js/menu.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

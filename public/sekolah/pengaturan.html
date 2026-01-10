@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="./assets/"
+    data-template="vertical-menu-template-free">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>Pengaturan - Sistem Sekolah | Sneat</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="./assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="./assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="./assets/css/demo.css" />
+    <link rel="stylesheet" href="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <script src="./assets/vendor/js/helpers.js"></script>
+    <script src="./assets/js/config.js"></script>
+</head>
+
+<body>
+    <div class="layout-wrapper layout-content-navbar">
+        <div class="layout-container">
+            <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+                <div class="app-brand demo"><a href="index.html" class="app-brand-link"><span
+                            class="app-brand-text demo menu-text fw-bolder ms-2">Sistem Sekolah</span></a></div>
+                <ul class="menu-inner py-1">
+                    <!-- Dashboard -->
+                    <li class="menu-item">
+                        <a href="index.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                            <div data-i18n="Dashboard">Dashboard</div>
+                        </a>
+                    </li>
+
+                    <!-- Masters -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Data Induk</span></li>
+                    <li class="menu-item">
+                        <a href="javascript:void(0);" class="menu-link menu-toggle">
+                            <i class="menu-icon tf-icons bx bx-data"></i>
+                            <div data-i18n="Data Induk">Data Induk</div>
+                        </a>
+                        <ul class="menu-sub">
+                            <li class="menu-item">
+                                <a href="master-guru.html" class="menu-link">
+                                    <div data-i18n="Guru">Guru</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-kelas.html" class="menu-link">
+                                    <div data-i18n="Kelas">Kelas</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-siswa.html" class="menu-link">
+                                    <div data-i18n="Siswa">Siswa</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-mapel.html" class="menu-link">
+                                    <div data-i18n="Mata Pelajaran">Mata Pelajaran</div>
+                                </a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="master-jam.html" class="menu-link">
+                                    <div data-i18n="Jam Pelajaran">Jam Pelajaran</div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- Akademik -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Akademik</span></li>
+                    <li class="menu-item">
+                        <a href="akademik-jadwal.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-calendar-event"></i>
+                            <div data-i18n="Jadwal Mengajar">Jadwal Mengajar</div>
+                        </a>
+                    </li>
+
+                    <!-- Absensi -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Absensi</span></li>
+                    <li class="menu-item">
+                        <a href="absensi-guru.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-check"></i>
+                            <div data-i18n="Absensi Guru">Absensi Guru</div>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="absensi-siswa.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-group"></i>
+                            <div data-i18n="Absensi Siswa">Absensi Siswa</div>
+                        </a>
+                    </li>
+
+                    <!-- Jurnal -->
+                    <li class="menu-item">
+                        <a href="jurnal-mengajar.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-book-content"></i>
+                            <div data-i18n="Jurnal Mengajar">Jurnal Mengajar</div>
+                        </a>
+                    </li>
+
+                    <!-- Laporan -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Laporan</span></li>
+                    <li class="menu-item">
+                        <a href="laporan-rekap.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-file"></i>
+                            <div data-i18n="Rekap Laporan">Rekap Laporan</div>
+                        </a>
+                    </li>
+
+                    <!-- Pengaturan -->
+                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Pengaturan</span></li>
+                    <li class="menu-item active">
+                        <a href="pengaturan.html" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-cog"></i>
+                            <div data-i18n="Konfigurasi">Konfigurasi</div>
+                        </a>
+                    </li>
+                </ul>
+            </aside>
+
+            <div class="layout-page">
+                <nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+                    id="layout-navbar">
+                    <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none"><a
+                            class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)"><i
+                                class="bx bx-menu bx-sm"></i></a></div>
+                    <div class="navbar-nav-right d-flex align-items-center">
+                        <h4 class="fw-bold mb-0">Pengaturan Sistem</h4>
+                    </div>
+                </nav>
+
+                <div class="content-wrapper">
+                    <div class="container-xxl flex-grow-1 container-p-y">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <ul class="nav nav-pills flex-column flex-md-row mb-3" role="tablist">
+                                    <li class="nav-item">
+                                        <button type="button" class="nav-link active" role="tab" data-bs-toggle="tab"
+                                            data-bs-target="#navs-pills-top-umum" aria-controls="navs-pills-top-umum"
+                                            aria-selected="true">
+                                            <i class="bx bx-cog me-1"></i> Umum
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                            data-bs-target="#navs-pills-top-user" aria-controls="navs-pills-top-user"
+                                            aria-selected="false">
+                                            <i class="bx bx-user me-1"></i> User Management
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="nav-link" role="tab" data-bs-toggle="tab"
+                                            data-bs-target="#navs-pills-top-tahun" aria-controls="navs-pills-top-tahun"
+                                            aria-selected="false">
+                                            <i class="bx bx-calendar me-1"></i> Tahun Ajaran
+                                        </button>
+                                    </li>
+                                </ul>
+                                <div class="tab-content border-0 p-0 shadow-none">
+                                    <div class="tab-pane fade show active" id="navs-pills-top-umum" role="tabpanel">
+                                        <div class="card mb-4">
+                                            <h5 class="card-header">Identitas Sekolah</h5>
+                                            <div class="card-body">
+                                                <form id="formAccountSettings" method="POST" onsubmit="return false">
+                                                    <div class="row">
+                                                        <div class="mb-3 col-md-6">
+                                                            <label for="schoolName" class="form-label">Nama
+                                                                Sekolah</label>
+                                                            <input class="form-control" type="text" id="schoolName"
+                                                                name="schoolName" value="SMP Negeri 1 Kota" autofocus />
+                                                        </div>
+                                                        <div class="mb-3 col-md-6">
+                                                            <label for="npsn" class="form-label">NPSN</label>
+                                                            <input class="form-control" type="text" name="npsn"
+                                                                id="npsn" value="20312345" />
+                                                        </div>
+                                                        <div class="mb-3 col-md-6">
+                                                            <label for="email" class="form-label">E-mail Kontak</label>
+                                                            <input class="form-control" type="text" id="email"
+                                                                name="email" value="admin@smpn1kota.sch.id"
+                                                                placeholder="admin@sekolah.sch.id" />
+                                                        </div>
+                                                        <div class="mb-3 col-md-6">
+                                                            <label for="phone" class="form-label">Nomor Telepon</label>
+                                                            <input type="text" class="form-control" id="phone"
+                                                                name="phone" value="(021) 1234567" />
+                                                        </div>
+                                                        <div class="mb-3 col-md-12">
+                                                            <label for="address" class="form-label">Alamat
+                                                                Lengkap</label>
+                                                            <textarea class="form-control" id="address" name="address"
+                                                                rows="3">Jl. Pendidikan No. 123, Kota Digital, Indonesia</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <button type="submit" class="btn btn-primary me-2">Simpan
+                                                            Perubahan</button>
+                                                        <button type="reset"
+                                                            class="btn btn-outline-secondary">Reset</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="navs-pills-top-user" role="tabpanel">
+                                        <div class="card">
+                                            <div class="card-header d-flex justify-content-between align-items-center">
+                                                <h5 class="mb-0">Daftar Pengguna Sistem</h5>
+                                                <button class="btn btn-primary btn-sm"><i class="bx bx-plus me-1"></i>
+                                                    Tambah User</button>
+                                            </div>
+                                            <div class="table-responsive text-nowrap">
+                                                <table class="table table-hover">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Pengguna</th>
+                                                            <th>Role</th>
+                                                            <th>Status</th>
+                                                            <th>Aksi</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div
+                                                                    class="d-flex justify-content-start align-items-center">
+                                                                    <div class="avatar-wrapper">
+                                                                        <div class="avatar avatar-sm me-3">
+                                                                            <span
+                                                                                class="avatar-initial rounded-circle bg-label-primary">AD</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="d-flex flex-column">
+                                                                        <span class="fw-semibold">Administrator</span>
+                                                                        <small
+                                                                            class="text-muted">admin@smpn1kota.sch.id</small>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td><span class="badge bg-label-danger">Admin</span></td>
+                                                            <td><span class="badge bg-label-success">Aktif</span></td>
+                                                            <td>
+                                                                <button
+                                                                    class="btn btn-sm btn-icon btn-outline-warning"><i
+                                                                        class="bx bx-edit"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div
+                                                                    class="d-flex justify-content-start align-items-center">
+                                                                    <div class="avatar-wrapper">
+                                                                        <div class="avatar avatar-sm me-3">
+                                                                            <span
+                                                                                class="avatar-initial rounded-circle bg-label-info">BS</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="d-flex flex-column">
+                                                                        <span class="fw-semibold">Budi Santoso</span>
+                                                                        <small
+                                                                            class="text-muted">budi@smpn1kota.sch.id</small>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td><span class="badge bg-label-primary">Guru</span></td>
+                                                            <td><span class="badge bg-label-success">Aktif</span></td>
+                                                            <td>
+                                                                <button
+                                                                    class="btn btn-sm btn-icon btn-outline-warning"><i
+                                                                        class="bx bx-edit"></i></button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane fade" id="navs-pills-top-tahun" role="tabpanel">
+                                        <div class="card mb-4">
+                                            <h5 class="card-header">Pengaturan Tahun Ajaran</h5>
+                                            <div class="card-body">
+                                                <div class="alert alert-warning mb-4">
+                                                    <h6 class="alert-heading fw-bold mb-1">Tahun Ajaran Aktif: 2025/2026
+                                                        Ganjil</h6>
+                                                    <p class="mb-0">Perubahan tahun ajaran akan mempengaruhi seluruh
+                                                        data jadwal dan absensi yang ditampilkan.</p>
+                                                </div>
+                                                <div class="row g-3 align-items-end">
+                                                    <div class="col-md-5">
+                                                        <label class="form-label">Tahun Ajaran</label>
+                                                        <select class="form-select">
+                                                            <option value="2024/2025">2024/2025</option>
+                                                            <option value="2025/2026" selected>2025/2026</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label class="form-label">Semester</label>
+                                                        <select class="form-select">
+                                                            <option value="Ganjil" selected>Ganjil</option>
+                                                            <option value="Genap">Genap</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <button type="button"
+                                                            class="btn btn-primary w-100">Aktifkan</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr class="m-0">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">Riwayat Tahun Ajaran</h5>
+                                            </div>
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Tahun Ajaran</th>
+                                                            <th>Semester</th>
+                                                            <th>Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>2024/2025</td>
+                                                            <td>Genap</td>
+                                                            <td><span class="badge bg-label-secondary">Non-Aktif</span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2024/2025</td>
+                                                            <td>Ganjil</td>
+                                                            <td><span class="badge bg-label-secondary">Non-Aktif</span>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer -->
+                    <footer class="content-footer footer bg-footer-theme">
+                        <div
+                            class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+                            <div class="mb-2 mb-md-0">
+                                ©
+                                <script>document.write(new Date().getFullYear());</script> Sistem Sekolah
+                            </div>
+                            <div>
+                                <a href="javascript:void(0)" class="footer-link me-4">License</a>
+                                <a href="javascript:void(0)" class="footer-link me-4">Documentation</a>
+                                <a href="javascript:void(0)" class="footer-link me-4">Support</a>
+                            </div>
+                        </div>
+                    </footer>
+                    <!-- / Footer -->
+                    <div class="content-backdrop fade"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="./assets/vendor/libs/popper/popper.js"></script>
+    <script src="./assets/vendor/js/bootstrap.js"></script>
+    <script src="./assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="./assets/vendor/js/menu.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
