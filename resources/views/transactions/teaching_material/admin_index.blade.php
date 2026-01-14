@@ -5,24 +5,35 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Monitoring Kelengkapan Perangkat Ajar</h5>
-            <div class="d-flex align-items-center">
-                <select class="form-select form-select-sm me-2" id="filterYear" style="width: 200px;">
-                    @foreach(\App\Models\AcademicYear::orderBy('id', 'desc')->get() as $year)
-                        <option value="{{ $year->id }}" {{ $year->is_active ? 'selected' : '' }}>
-                            {{ $year->name }} {{ $year->is_active ? '(Aktif)' : '' }}
-                        </option>
-                    @endforeach
-                </select>
-                <select class="form-select form-select-sm" id="filterTeacher" style="width: 200px;">
-                    <option value="">Semua Guru</option>
-                    @foreach(\App\Models\Teacher::orderBy('name')->get() as $t)
-                        <option value="{{ $t->id }}">{{ $t->name }}</option>
-                    @endforeach
-                </select>
+        <div class="card-header bg-white border-bottom py-3">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+
+                <!-- Left: Title -->
+                <div class="d-flex align-items-center gap-2">
+                    <h5 class="mb-0 fw-semibold text-dark">Monitoring Kelengkapan Perangkat Ajar</h5>
+                </div>
+
+                <!-- Right: Filters -->
+                <div class="d-flex align-items-center gap-2 flex-wrap">
+                    <select class="form-select form-select-sm" id="filterYear" style="width: 200px;">
+                        @foreach(\App\Models\AcademicYear::orderBy('id', 'desc')->get() as $year)
+                            <option value="{{ $year->id }}" {{ $year->is_active ? 'selected' : '' }}>
+                                {{ $year->name }} {{ $year->is_active ? '(Aktif)' : '' }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    <select class="form-select form-select-sm" id="filterTeacher" style="width: 200px;">
+                        <option value="">Semua Guru</option>
+                        @foreach(\App\Models\Teacher::orderBy('name')->get() as $t)
+                            <option value="{{ $t->id }}">{{ $t->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
             </div>
         </div>
+
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
                 <thead>

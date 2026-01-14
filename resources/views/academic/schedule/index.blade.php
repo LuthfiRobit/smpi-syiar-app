@@ -5,96 +5,152 @@
 
 @section('content')
 
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-4">
-                        <div class="d-flex gap-2 align-items-center">
-                            <!-- Academic Year Filter -->
-                            <div style="width: 250px;">
-                                <select id="filterAcademicYear" class="form-control" autocomplete="off">
-                                    <option value="">Pilih Tahun Ajaran...</option>
-                                    @foreach($academicYears as $year)
-                                        <option value="{{ $year->id }}" {{ ($activeYear && $activeYear->id == $year->id) ? 'selected' : '' }}>
-                                            {{ $year->name }} ({{ $year->semester }})
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
+ <div class="row">
+    <div class="col-12">
+        <div class="card shadow-sm">
+            <!-- Card Header -->
+           <div class="card-header bg-white border-bottom py-3">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
 
-                            <!-- Classroom Filter -->
-                            <div style="width: 250px;">
-                                <select id="filterClassroom" class="form-control" placeholder="Pilih Kelas..."
-                                    autocomplete="off">
-                                    <option value="">-- Pilih Kelas --</option>
-                                    @foreach($classrooms as $classroom)
-                                        <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
+        <!-- Left: Title + Filters -->
+        <div class="d-flex flex-wrap align-items-center gap-3">
+            <h5 class="mb-0 fw-semibold text-dark">
+                Manajemen Jadwal
+            </h5>
 
-                        <div class="d-flex gap-2">
-                            <div class="btn-group" role="group">
-                                <button type="button" class="btn btn-outline-primary active" id="btnMatrixView">
-                                    <i class="bx bx-grid-alt"></i> Matrix
-                                </button>
-                                <button type="button" class="btn btn-outline-primary" id="btnListView">
-                                    <i class="bx bx-list-ul"></i> List
-                                </button>
-                            </div>
-                            @if(auth()->user()->role === 'admin')
-                                <button type="button" class="btn btn-primary" id="btnTambahJadwal">
-                                    <i class="bx bx-plus"></i> Tambah Jadwal
-                                </button>
-                            @endif
-                        </div>
-                    </div>
+            <div class="vr d-none d-lg-block"></div>
 
-                    <!-- Matrix View -->
-                    <div id="matrixView" class="table-responsive">
-                        <table class="table table-bordered table-striped" id="matrixTable">
-                            <thead>
-                                <tr id="matrixHeaderRow">
-                                    <th class="text-center bg-light" style="width: 150px;">Jam</th>
-                                    <!-- Dynamic Days Header -->
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td colspan="7" class="text-center">Silakan pilih kelas terlebih dahulu</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <select
+                id="filterAcademicYear"
+                class="form-select form-select-sm"
+                style="width: 220px;"
+                autocomplete="off"
+            >
+                <option value="">Tahun Ajaran</option>
+                @foreach($academicYears as $year)
+                    <option
+                        value="{{ $year->id }}"
+                        {{ ($activeYear && $activeYear->id == $year->id) ? 'selected' : '' }}
+                    >
+                        {{ $year->name }} ({{ $year->semester }})
+                    </option>
+                @endforeach
+            </select>
 
-                    <!-- List View -->
-                    <div id="listView" class="table-responsive" style="display: none;">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Kelas</th>
-                                    <th>Hari</th>
-                                    <th>Jam</th>
-                                    <th>Mata Pelajaran</th>
-                                    <th>Guru</th>
-                                    @if(auth()->user()->role === 'admin')
-                                        <th>Aksi</th>
-                                    @endif
-                                </tr>
-                            </thead>
-                            <tbody id="listTable">
-                                <tr>
-                                    <td colspan="6" class="text-center">Silakan pilih kelas terlebih dahulu</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+            <select
+                id="filterClassroom"
+                class="form-select form-select-sm"
+                style="width: 200px;"
+                autocomplete="off"
+            >
+                <option value="">Kelas</option>
+                @foreach($classrooms as $classroom)
+                    <option value="{{ $classroom->id }}">
+                        {{ $classroom->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <!-- Right: Actions -->
+        <div class="d-flex align-items-center gap-2">
+            <div class="btn-group btn-group-sm" role="group">
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary active"
+                    id="btnMatrixView"
+                >
+                    <i class="bx bx-grid-alt"></i>
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-outline-secondary"
+                    id="btnListView"
+                >
+                    <i class="bx bx-list-ul"></i>
+                </button>
+            </div>
+
+            @if(auth()->user()->role === 'admin')
+                <button
+                    type="button"
+                    class="btn btn-primary btn-sm"
+                    id="btnTambahJadwal"
+                >
+                    <i class="bx bx-plus me-1"></i>
+                    Tambah
+                </button>
+            @endif
+        </div>
+
+    </div>
+</div>
+
+
+            <!-- Card Body -->
+            <div class="card-body pt-3">
+                <!-- Matrix View -->
+                <div id="matrixView" class="table-responsive">
+                    <table class="table table-bordered align-middle mb-0" id="matrixTable">
+                        <thead class="table-light">
+                            <tr id="matrixHeaderRow">
+                                <th
+                                    class="text-center"
+                                    style="width: 140px;"
+                                >
+                                    Jam
+                                </th>
+                                <!-- Dynamic Days Header -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td
+                                    colspan="7"
+                                    class="text-center text-muted py-4"
+                                >
+                                    Silakan pilih kelas terlebih dahulu
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- List View -->
+                <div
+                    id="listView"
+                    class="table-responsive"
+                    style="display: none;"
+                >
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                @if(auth()->user()->role === 'admin')
+                                    <th style="width: 120px;">Aksi</th>
+                                @endif
+                                <th>Kelas</th>
+                                <th>Hari</th>
+                                <th>Jam</th>
+                                <th>Mata Pelajaran</th>
+                                <th>Guru</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listTable">
+                            <tr>
+                                <td
+                                    colspan="{{ auth()->user()->role === 'admin' ? 6 : 5 }}"
+                                    class="text-center text-muted py-4"
+                                >
+                                    Silakan pilih kelas terlebih dahulu
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
     @if(auth()->user()->role === 'admin')
         <!-- Modal Add/Edit Schedule -->
@@ -382,17 +438,17 @@
                     let html = '';
                     data.forEach(function (item) {
                         html += `<tr>
-                                        <td>${item.classroom.name}</td>
-                                        <td>${item.day}</td>
-                                        <td>${item.time_slot.name} (${item.time_slot.start_time.substr(0, 5)} - ${item.time_slot.end_time.substr(0, 5)})</td>
-                                        <td>${item.subject.name}</td>
-                                        <td>${item.teacher.name}</td>
                                         @if(auth()->user()->role === 'admin')
                                             <td>
                                                 <button class="btn btn-sm btn-icon btn-warning btn-edit-schedule" data-item='${JSON.stringify(item)}'><i class="bx bx-edit"></i></button>
                                                 <button class="btn btn-sm btn-icon btn-danger btn-delete-schedule" data-id="${item.id}"><i class="bx bx-trash"></i></button>
                                             </td>
                                         @endif
+                                        <td>${item.classroom.name}</td>
+                                        <td>${item.day}</td>
+                                        <td>${item.time_slot.name} (${item.time_slot.start_time.substr(0, 5)} - ${item.time_slot.end_time.substr(0, 5)})</td>
+                                        <td>${item.subject.name}</td>
+                                        <td>${item.teacher.name}</td>
                                     </tr>`;
                     });
                     $('#listTable').html(html || '<tr><td colspan="6" class="text-center">Tidak ada jadwal</td></tr>');

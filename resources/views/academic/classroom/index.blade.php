@@ -4,33 +4,57 @@
 @section('page-title', 'Manajemen Kelas')
 
 @section('content')
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Data Kelas</h5>
+   <div class="card shadow-sm">
+    <!-- Card Header -->
+    <div class="card-header bg-white border-bottom">
+        <div class="row g-2 align-items-center">
+            <div class="col-12 col-md-6">
+                <h5 class="mb-0 fw-semibold">Data Kelas</h5>
+            </div>
+
             @if(auth()->user()->role === 'admin')
-                <button class="btn btn-primary btn-sm" id="btnTambahKelas">
-                    <i class="bx bx-plus me-1"></i> Tambah Kelas
-                </button>
+                <div class="col-12 col-md-6 text-md-end">
+                    <button 
+                        class="btn btn-primary btn-sm"
+                        id="btnTambahKelas"
+                    >
+                        <i class="bx bx-plus me-1"></i>
+                        Tambah Kelas
+                    </button>
+                </div>
             @endif
         </div>
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Nama Kelas</th>
-                        <th>Tingkat</th>
-                        <th>Tahun Ajaran</th>
-                        <th>Wali Kelas</th>
-                        <th>Jumlah Siswa</th>
-                        @if(auth()->user()->role === 'admin')
-                            <th>Aksi</th>
-                        @endif
-                    </tr>
-                </thead>
-                <tbody id="tableClassroom"></tbody>
-            </table>
-        </div>
     </div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    @if(auth()->user()->role === 'admin')
+                        <th style="width: 120px;">Aksi</th>
+                    @endif
+                    <th>Nama Kelas</th>
+                    <th>Tingkat</th>
+                    <th>Tahun Ajaran</th>
+                    <th>Wali Kelas</th>
+                    <th>Jumlah Siswa</th>
+                </tr>
+            </thead>
+            <tbody id="tableClassroom">
+                <tr>
+                    <td 
+                        colspan="{{ auth()->user()->role === 'admin' ? 6 : 5 }}"
+                        class="text-center text-muted py-4"
+                    >
+                        Memuat data...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
 
     <!-- Modal Kelas -->
     @if(auth()->user()->role === 'admin')
@@ -149,16 +173,16 @@
                         let romanGrade = item.grade_level == 7 ? 'VII' : (item.grade_level == 8 ? 'VIII' : 'IX');
                         html += `
                             <tr>
-                                <td><strong>${item.name}</strong></td>
-                                <td>${romanGrade}</td>
-                                <td>${item.academic_year ? item.academic_year.name + ' ' + item.academic_year.semester : '-'}</td>
-                                <td>${item.teacher ? item.teacher.name : '-'}</td>
-                                <td><span class="badge bg-label-primary">${item.students_count || 0} siswa</span></td>
                                 <td>
                                     <button class="btn btn-sm btn-icon btn-outline-info btn-manage-students" data-id="${item.id}" data-name="${item.name}"><i class="bx bx-user"></i></button>
                                     <button class="btn btn-sm btn-icon btn-outline-warning btn-edit-classroom" data-item='${JSON.stringify(item)}'><i class="bx bx-edit"></i></button>
                                     <button class="btn btn-sm btn-icon btn-outline-danger btn-delete-classroom" data-id="${item.id}"><i class="bx bx-trash"></i></button>
                                 </td>
+                                <td><strong>${item.name}</strong></td>
+                                <td>${romanGrade}</td>
+                                <td>${item.academic_year ? item.academic_year.name + ' ' + item.academic_year.semester : '-'}</td>
+                                <td>${item.teacher ? item.teacher.name : '-'}</td>
+                                <td><span class="badge bg-label-primary">${item.students_count || 0} siswa</span></td>
                             </tr>`;
                     });
                     $('#tableClassroom').html(html || '<tr><td colspan="6" class="text-center">Tidak ada data</td></tr>');

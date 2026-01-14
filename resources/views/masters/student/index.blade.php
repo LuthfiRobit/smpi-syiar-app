@@ -4,53 +4,92 @@
 @section('page-title', 'Master Siswa')
 
 @section('content')
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Daftar Siswa</h5>
-            <div class="d-flex align-items-center">
-                <select class="form-select form-select-sm me-2" id="filterClassroom" style="width: 150px;">
-                    <option value="">Semua Kelas</option>
-                    @foreach($classrooms as $classroom)
-                        <option value="{{ $classroom->id }}">{{ $classroom->name }}</option>
-                    @endforeach
-                </select>
-                <select class="form-select form-select-sm me-2" id="filterStatus" style="width: 150px;">
-                    <option value="">Semua Status</option>
-                    <option value="active">Aktif</option>
-                    <option value="inactive">Nonaktif</option>
-                </select>
-                <button class="btn btn-success btn-sm me-2" data-bs-toggle="modal" data-bs-target="#modalImport">
-                    <i class="bx bx-upload me-1"></i> Import Excel
-                </button>
-                <button class="btn btn-primary btn-sm" id="btnTambahSiswa">
-                    <i class="bx bx-plus me-1"></i> Tambah Siswa
-                </button>
+   <div class="card shadow-sm">
+    <!-- Card Header -->
+    <div class="card-header bg-white border-bottom">
+        <div class="row g-2 align-items-center">
+            <div class="col-12 col-md-4">
+                <h5 class="mb-0 fw-semibold">Daftar Siswa</h5>
+            </div>
+
+            <div class="col-12 col-md-8">
+                <div class="d-flex flex-wrap justify-content-md-end gap-2">
+                    <select 
+                        class="form-select form-select-sm"
+                        id="filterClassroom"
+                        style="max-width: 160px;"
+                    >
+                        <option value="">Semua Kelas</option>
+                        @foreach($classrooms as $classroom)
+                            <option value="{{ $classroom->id }}">
+                                {{ $classroom->name }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    <select 
+                        class="form-select form-select-sm"
+                        id="filterStatus"
+                        style="max-width: 160px;"
+                    >
+                        <option value="">Semua Status</option>
+                        <option value="active">Aktif</option>
+                        <option value="inactive">Nonaktif</option>
+                    </select>
+
+                    <button 
+                        class="btn btn-success btn-sm"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalImport"
+                    >
+                        <i class="bx bx-upload me-1"></i>
+                        Import Excel
+                    </button>
+
+                    <button 
+                        class="btn btn-primary btn-sm"
+                        id="btnTambahSiswa"
+                    >
+                        <i class="bx bx-plus me-1"></i>
+                        Tambah Siswa
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="table-responsive text-nowrap">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th width="150">Aksi</th>
-                        <th>NIS</th>
-                        <th>Nama</th>
-                        <th>Kelas</th>
-                        <th>Email</th>
-                        <th>Telepon</th>
-                        <th>Status User</th>
-                    </tr>
-                </thead>
-                <tbody id="tableStudent">
-                    <tr>
-                        <td colspan="7" class="text-center">Memuat data...</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="card-footer px-3 py-2">
+    </div>
+
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th style="width: 140px;">Aksi</th>
+                    <th>NIS</th>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>Email</th>
+                    <th>Telepon</th>
+                    <th>Status User</th>
+                </tr>
+            </thead>
+            <tbody id="tableStudent">
+                <tr>
+                    <td colspan="7" class="text-center text-muted py-4">
+                        Memuat data...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Card Footer -->
+    <div class="card-footer bg-white border-top py-2">
+        <div class="d-flex justify-content-end">
             <div id="paginationStudent"></div>
         </div>
     </div>
+</div>
+
 
     <!-- Modal Siswa -->
     <div class="modal fade" id="modalSiswa" tabindex="-1" aria-hidden="true">

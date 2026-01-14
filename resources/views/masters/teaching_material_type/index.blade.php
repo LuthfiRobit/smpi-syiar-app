@@ -4,26 +4,38 @@
 @section('page-title', 'Master Jenis Perangkat Ajar')
 
 @section('content')
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Daftar Jenis Perangkat Ajar</h5>
-            <button class="btn btn-primary btn-sm" id="btnTambahType">
-                <i class="bx bx-plus me-1"></i> Tambah Jenis
-            </button>
+    <div class="card shadow-sm">
+        <!-- Card Header -->
+        <div class="card-header bg-white border-bottom">
+            <div class="row g-2 align-items-center">
+                <div class="col-12 col-md-6">
+                    <h5 class="mb-0 fw-semibold">Daftar Jenis Perangkat Ajar</h5>
+                </div>
+                <div class="col-12 col-md-6 text-md-end">
+                    <button class="btn btn-primary btn-sm" id="btnTambahType">
+                        <i class="bx bx-plus me-1"></i>
+                        Tambah Jenis
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="table-responsive text-nowrap">
-            <table class="table table-hover">
-                <thead>
+
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
                     <tr>
-                        <th width="5%">No</th>
+                        <th style="width: 120px;">Aksi</th>
+                        <th style="width: 60px;">No</th>
                         <th>Nama Jenis</th>
                         <th>Deskripsi</th>
-                        <th width="10%">Aksi</th>
                     </tr>
                 </thead>
                 <tbody id="tableType">
                     <tr>
-                        <td colspan="4" class="text-center">Memuat data...</td>
+                        <td colspan="4" class="text-center text-muted py-4">
+                            Memuat data...
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -73,19 +85,19 @@
                     if (data.length > 0) {
                         data.forEach(function (item, index) {
                             html += `
-                                    <tr>
-                                        <td>${index + 1}</td>
-                                        <td><strong>${item.name}</strong></td>
-                                        <td>${item.description || '-'}</td>
-                                        <td>
-                                            <button class="btn btn-sm btn-icon btn-outline-warning btn-edit-type" data-item='${JSON.stringify(item)}'>
-                                                <i class="bx bx-edit"></i>
-                                            </button>
-                                            <button class="btn btn-sm btn-icon btn-outline-danger btn-delete-type" data-id="${item.id}">
-                                                <i class="bx bx-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>`;
+                                        <tr> 
+                                            <td>
+                                                <button class="btn btn-sm btn-icon btn-outline-warning btn-edit-type" data-item='${JSON.stringify(item)}'>
+                                                    <i class="bx bx-edit"></i>
+                                                </button>
+                                                <button class="btn btn-sm btn-icon btn-outline-danger btn-delete-type" data-id="${item.id}">
+                                                    <i class="bx bx-trash"></i>
+                                                </button>
+                                            </td>
+                                            <td>${index + 1}</td>
+                                            <td><strong>${item.name}</strong></td>
+                                            <td>${item.description || '-'}</td>
+                                        </tr>`;
                         });
                     } else {
                         html = '<tr><td colspan="4" class="text-center">Tidak ada data</td></tr>';

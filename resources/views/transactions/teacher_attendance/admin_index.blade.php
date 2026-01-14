@@ -13,12 +13,31 @@
     @endif
 
     <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Absensi Guru</h5>
-            <div class="d-flex gap-2 align-items-center">
-                <input type="date" id="filterDate" class="form-control form-control-sm" value="{{ $today }}"
-                    style="width: 180px;">
-                <span class="badge bg-label-primary">{{ count($teachers) }} Guru</span>
+        <div class="card-header bg-white border-bottom py-3">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+
+                <!-- Left: Title -->
+                <div class="d-flex align-items-center gap-3">
+                    <h5 class="mb-0 fw-semibold text-dark">
+                        Absensi Guru
+                    </h5>
+
+                    <span class="badge bg-label-primary">
+                        {{ count($teachers) }} Guru
+                    </span>
+                </div>
+
+                <!-- Right: Filter -->
+                <div class="d-flex align-items-center gap-2">
+                    <input
+                        type="date"
+                        id="filterDate"
+                        class="form-control form-control-sm"
+                        value="{{ $today }}"
+                        style="width: 180px;"
+                    >
+                </div>
+
             </div>
         </div>
         <div class="table-responsive text-nowrap">
@@ -117,6 +136,7 @@
             </table>
         </div>
     </div>
+    
     <script>
         document.getElementById('filterDate').addEventListener('change', function () {
             const date = this.value;

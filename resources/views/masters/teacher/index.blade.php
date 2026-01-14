@@ -4,28 +4,41 @@
 @section('page-title', 'Master Guru')
 
 @section('content')
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Daftar Guru</h5>
-            <div class="d-flex align-items-center">
-                <select class="form-select form-select-sm me-2" id="filterStatus" style="width: 150px;">
-                    <option value="">Semua Status</option>
-                    <option value="active">Aktif</option>
-                    <option value="inactive">Nonaktif</option>
-                </select>
-                <button class="btn btn-success btn-sm me-2" data-bs-toggle="modal" data-bs-target="#modalImport">
-                    <i class="bx bx-upload me-1"></i> Import Excel
-                </button>
-                <button class="btn btn-primary btn-sm" id="btnTambahGuru">
-                    <i class="bx bx-plus me-1"></i> Tambah Guru
-                </button>
+    <div class="card shadow-sm">
+        <!-- Card Header -->
+        <div class="card-header bg-white border-bottom">
+            <div class="row g-2 align-items-center">
+                <div class="col-12 col-md-6">
+                    <h5 class="mb-0 fw-semibold">Daftar Guru</h5>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="d-flex flex-wrap justify-content-md-end gap-2">
+                        <select class="form-select form-select-sm" id="filterStatus" style="max-width: 160px;">
+                            <option value="">Semua Status</option>
+                            <option value="active">Aktif</option>
+                            <option value="inactive">Nonaktif</option>
+                        </select>
+
+                        <button class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#modalImport">
+                            <i class="bx bx-upload me-1"></i>
+                            Import Excel
+                        </button>
+
+                        <button class="btn btn-primary btn-sm" id="btnTambahGuru">
+                            <i class="bx bx-plus me-1"></i>
+                            Tambah Guru
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="table-responsive text-nowrap">
-            <table class="table table-hover">
-                <thead>
+
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
                     <tr>
-                        <th width="150">Aksi</th>
+                        <th style="width: 140px;">Aksi</th>
                         <th>NIP</th>
                         <th>Nama</th>
                         <th>Email</th>
@@ -35,15 +48,22 @@
                 </thead>
                 <tbody id="tableTeacher">
                     <tr>
-                        <td colspan="6" class="text-center">Memuat data...</td>
+                        <td colspan="6" class="text-center text-muted py-4">
+                            Memuat data...
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <div class="card-footer px-3 py-2">
-            <div id="paginationTeacher"></div>
+
+        <!-- Card Footer -->
+        <div class="card-footer bg-white border-top py-2">
+            <div class="d-flex justify-content-end">
+                <div id="paginationTeacher"></div>
+            </div>
         </div>
     </div>
+
 
     <!-- Modal Guru -->
     <div class="modal fade" id="modalGuru" tabindex="-1" aria-hidden="true">
@@ -143,30 +163,30 @@
                 }, function (response) {
                     let html = '';
                     let data = response.data;
-                    
+
                     data.forEach(function (item) {
                         let statusBadge = item.user && item.user.is_active
                             ? '<span class="badge bg-label-success">Aktif</span>'
                             : '<span class="badge bg-label-secondary">Nonaktif</span>';
 
                         html += `
-                            <tr>
-                                <td>
-                                    <div class="d-flex gap-1">
-                                        <button class="btn btn-sm btn-icon btn-outline-warning btn-edit-teacher" data-item='${JSON.stringify(item)}'><i class="bx bx-edit"></i></button>
-                                        <button class="btn btn-sm btn-icon btn-outline-info btn-reset-teacher" data-id="${item.id}" title="Reset Password & Username"><i class="bx bx-refresh"></i></button>
-                                        <button class="btn btn-sm btn-icon btn-outline-danger btn-delete-teacher" data-id="${item.id}"><i class="bx bx-trash"></i></button>
-                                    </div>
-                                </td>
-                                <td><strong>${item.nip}</strong></td>
-                                <td>${item.name}</td>
-                                <td>${item.user ? item.user.email : '-'}</td>
-                                <td>${item.phone || '-'}</td>
-                                <td>${statusBadge}</td>
-                            </tr>`;
+                                <tr>
+                                    <td>
+                                        <div class="d-flex gap-1">
+                                            <button class="btn btn-sm btn-icon btn-outline-warning btn-edit-teacher" data-item='${JSON.stringify(item)}'><i class="bx bx-edit"></i></button>
+                                            <button class="btn btn-sm btn-icon btn-outline-info btn-reset-teacher" data-id="${item.id}" title="Reset Password & Username"><i class="bx bx-refresh"></i></button>
+                                            <button class="btn btn-sm btn-icon btn-outline-danger btn-delete-teacher" data-id="${item.id}"><i class="bx bx-trash"></i></button>
+                                        </div>
+                                    </td>
+                                    <td><strong>${item.nip}</strong></td>
+                                    <td>${item.name}</td>
+                                    <td>${item.user ? item.user.email : '-'}</td>
+                                    <td>${item.phone || '-'}</td>
+                                    <td>${statusBadge}</td>
+                                </tr>`;
                     });
                     $('#tableTeacher').html(html || '<tr><td colspan="6" class="text-center">Tidak ada data</td></tr>');
-                    
+
                     renderPagination(response, '#paginationTeacher', loadTeachers);
                 });
             }
@@ -179,28 +199,28 @@
 
             function renderPagination(response, containerId, callback) {
                 let html = '<nav aria-label="Page navigation"><ul class="pagination pagination-sm justify-content-end mb-0">';
-                
+
                 html += `<li class="page-item ${response.prev_page_url ? '' : 'disabled'}">
-                            <a class="page-link" href="javascript:void(0)" data-page="${response.current_page - 1}"><i class="tf-icon bx bx-chevrons-left"></i></a>
-                         </li>`;
+                                <a class="page-link" href="javascript:void(0)" data-page="${response.current_page - 1}"><i class="tf-icon bx bx-chevrons-left"></i></a>
+                             </li>`;
 
                 let startPage = Math.max(1, response.current_page - 2);
                 let endPage = Math.min(response.last_page, response.current_page + 2);
 
                 for (let i = startPage; i <= endPage; i++) {
                     html += `<li class="page-item ${i === response.current_page ? 'active' : ''}">
-                                <a class="page-link" href="javascript:void(0)" data-page="${i}">${i}</a>
-                             </li>`;
+                                    <a class="page-link" href="javascript:void(0)" data-page="${i}">${i}</a>
+                                 </li>`;
                 }
 
                 html += `<li class="page-item ${response.next_page_url ? '' : 'disabled'}">
-                            <a class="page-link" href="javascript:void(0)" data-page="${response.current_page + 1}"><i class="tf-icon bx bx-chevrons-right"></i></a>
-                         </li>`;
+                                <a class="page-link" href="javascript:void(0)" data-page="${response.current_page + 1}"><i class="tf-icon bx bx-chevrons-right"></i></a>
+                             </li>`;
 
                 html += '</ul></nav>';
                 $(containerId).html(html);
 
-                $(containerId + ' .page-link').unbind().click(function(e) {
+                $(containerId + ' .page-link').unbind().click(function (e) {
                     e.preventDefault();
                     let page = $(this).data('page');
                     if (page && page > 0 && page <= response.last_page && page !== response.current_page) {

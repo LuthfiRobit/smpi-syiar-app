@@ -6,17 +6,32 @@
 @section('content')
 
     <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Daftar Jurnal Masuk</h5>
-            <div class="d-flex gap-2 align-items-center">
-                <form action="{{ route('transactions.journals.admin-index') }}" method="GET"
-                    class="d-flex align-items-center">
-                    <input type="date" name="date" class="form-control form-control-sm" value="{{ $date }}"
-                        onchange="this.form.submit()" style="width: 180px;">
-                </form>
-                <span class="badge bg-label-primary">{{ count($groupedJournals) }} Jurnal</span>
+        <div class="card-header bg-white border-bottom py-3">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+
+                <!-- Left: Title -->
+                <div class="d-flex align-items-center gap-2">
+                    <h5 class="mb-0 fw-semibold text-dark">Daftar Jurnal Masuk</h5>
+                    <span class="badge bg-label-primary">{{ count($groupedJournals) }} Jurnal</span>
+                </div>
+
+                <!-- Right: Filter -->
+                <div class="d-flex align-items-center gap-2">
+                    <form action="{{ route('transactions.journals.admin-index') }}" method="GET" class="d-flex align-items-center">
+                        <input
+                            type="date"
+                            name="date"
+                            class="form-control form-control-sm"
+                            value="{{ $date }}"
+                            onchange="this.form.submit()"
+                            style="width: 180px;"
+                        >
+                    </form>
+                </div>
+
             </div>
         </div>
+
         <div class="table-responsive text-nowrap">
             <table class="table table-hover">
                 <thead>

@@ -4,25 +4,37 @@
 @section('page-title', 'Master Mata Pelajaran')
 
 @section('content')
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <h5 class="mb-0">Daftar Mapel</h5>
-            <button class="btn btn-primary btn-sm" id="btnTambahMapel">
-                <i class="bx bx-plus me-1"></i> Tambah Mapel
-            </button>
+    <div class="card shadow-sm">
+        <!-- Card Header -->
+        <div class="card-header bg-white border-bottom">
+            <div class="row g-2 align-items-center">
+                <div class="col-12 col-md-6">
+                    <h5 class="mb-0 fw-semibold">Daftar Mata Pelajaran</h5>
+                </div>
+                <div class="col-12 col-md-6 text-md-end">
+                    <button class="btn btn-primary btn-sm" id="btnTambahMapel">
+                        <i class="bx bx-plus me-1"></i>
+                        Tambah Mapel
+                    </button>
+                </div>
+            </div>
         </div>
-        <div class="table-responsive text-nowrap">
-            <table class="table table-hover">
-                <thead>
+
+        <!-- Table -->
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
                     <tr>
-                        <th>Kode</th>
+                        <th style="width: 120px;">Aksi</th>
+                        <th style="width: 120px;">Kode</th>
                         <th>Nama Mata Pelajaran</th>
-                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody id="tableSubject">
                     <tr>
-                        <td colspan="3" class="text-center">Memuat data...</td>
+                        <td colspan="3" class="text-center text-muted py-4">
+                            Memuat data...
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -70,14 +82,14 @@
                     let html = '';
                     data.forEach(function (item) {
                         html += `
-                            <tr>
-                                <td>${item.code}</td>
-                                <td><strong>${item.name}</strong></td>
-                                <td>
-                                    <button class="btn btn-sm btn-icon btn-outline-warning btn-edit-subject" data-item='${JSON.stringify(item)}'><i class="bx bx-edit"></i></button>
-                                    <button class="btn btn-sm btn-icon btn-outline-danger btn-delete-subject" data-id="${item.id}"><i class="bx bx-trash"></i></button>
-                                </td>
-                            </tr>`;
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-sm btn-icon btn-outline-warning btn-edit-subject" data-item='${JSON.stringify(item)}'><i class="bx bx-edit"></i></button>
+                                        <button class="btn btn-sm btn-icon btn-outline-danger btn-delete-subject" data-id="${item.id}"><i class="bx bx-trash"></i></button>
+                                    </td>
+                                    <td>${item.code}</td>
+                                    <td><strong>${item.name}</strong></td>
+                                </tr>`;
                     });
                     $('#tableSubject').html(html || '<tr><td colspan="3" class="text-center">Tidak ada data</td></tr>');
                 });

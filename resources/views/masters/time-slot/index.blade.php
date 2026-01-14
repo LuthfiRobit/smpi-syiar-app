@@ -4,14 +4,21 @@
 @section('page-title', 'Master Jam Pelajaran')
 
 @section('content')
-    <div class="card">
-        <div class="card-header d-flex justify-content-between align-items-center flex-wrap gap-2">
-            <h5 class="mb-0">Daftar Jam</h5>
+<div class="card shadow-sm">
+    <!-- Card Header -->
+    <div class="card-header bg-white border-bottom">
+        <div class="row g-2 align-items-center">
+            <div class="col-12 col-md-4">
+                <h5 class="mb-0 fw-semibold">Daftar Jam</h5>
+            </div>
 
-            <div class="d-flex align-items-center gap-2 flex-grow-1 justify-content-end">
-                <!-- Filters in Header -->
-                <div style="width: 150px;">
-                    <select id="filterDay" class="form-select form-select-sm">
+            <div class="col-12 col-md-8">
+                <div class="d-flex flex-wrap justify-content-md-end gap-2">
+                    <select
+                        id="filterDay"
+                        class="form-select form-select-sm"
+                        style="max-width: 160px;"
+                    >
                         <option value="">Semua Hari</option>
                         <option value="Senin">Senin</option>
                         <option value="Selasa">Selasa</option>
@@ -21,48 +28,64 @@
                         <option value="Sabtu">Sabtu</option>
                         <option value="Minggu">Minggu</option>
                     </select>
-                </div>
-                <div style="width: 150px;">
-                    <select id="filterType" class="form-select form-select-sm">
+
+                    <select
+                        id="filterType"
+                        class="form-select form-select-sm"
+                        style="max-width: 160px;"
+                    >
                         <option value="">Semua Tipe</option>
                         <option value="Pelajaran">Pelajaran</option>
                         <option value="Istirahat">Istirahat</option>
                     </select>
-                </div>
 
-                <button class="btn btn-primary btn-sm ms-2" id="btnTambahJam">
-                    <i class="bx bx-plus me-1"></i> Tambah Jam
-                </button>
+                    <button
+                        class="btn btn-primary btn-sm"
+                        id="btnTambahJam"
+                    >
+                        <i class="bx bx-plus me-1"></i>
+                        Tambah Jam
+                    </button>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="table-responsive text-nowrap">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Hari</th>
-                        <th>Jam Ke-</th>
-                        <th>Waktu Mulai</th>
-                        <th>Waktu Selesai</th>
-                        <th>Tipe</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody id="tableTimeSlot">
-                    <tr>
-                        <td colspan="6" class="text-center">Memuat data...</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="card-footer d-flex justify-content-between align-items-center">
+    <!-- Table -->
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th style="width: 120px;">Aksi</th>
+                    <th>Hari</th>
+                    <th>Jam Ke-</th>
+                    <th>Waktu Mulai</th>
+                    <th>Waktu Selesai</th>
+                    <th>Tipe</th>
+                </tr>
+            </thead>
+            <tbody id="tableTimeSlot">
+                <tr>
+                    <td colspan="6" class="text-center text-muted py-4">
+                        Memuat data...
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Card Footer -->
+    <div class="card-footer bg-white border-top py-2">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2">
             <div id="paginationInfo" class="text-muted small"></div>
+
             <nav aria-label="Page navigation">
-                <ul class="pagination pagination-sm mb-0" id="paginationLinks">
-                </ul>
+                <ul class="pagination pagination-sm mb-0" id="paginationLinks"></ul>
             </nav>
         </div>
     </div>
+</div>
+
 
     <!-- Modal Jam -->
     <div class="modal fade" id="modalJam" tabindex="-1" aria-hidden="true">
@@ -166,15 +189,15 @@
                             let badgeClass = item.is_break ? 'bg-label-warning' : 'bg-label-primary';
                             html += `
                                                 <tr>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-icon btn-outline-warning btn-edit-jam" data-item='${JSON.stringify(item)}'><i class="bx bx-edit"></i></button>
+                                                        <button class="btn btn-sm btn-icon btn-outline-danger btn-delete-jam" data-id="${item.id}"><i class="bx bx-trash"></i></button>
+                                                    </td>
                                                     <td>${item.day}</td>
                                                     <td>${item.name}</td>
                                                     <td>${item.start_time.substring(0, 5)}</td>
                                                     <td>${item.end_time.substring(0, 5)}</td>
                                                     <td><span class="badge ${badgeClass}">${type}</span></td>
-                                                    <td>
-                                                        <button class="btn btn-sm btn-icon btn-outline-warning btn-edit-jam" data-item='${JSON.stringify(item)}'><i class="bx bx-edit"></i></button>
-                                                        <button class="btn btn-sm btn-icon btn-outline-danger btn-delete-jam" data-id="${item.id}"><i class="bx bx-trash"></i></button>
-                                                    </td>
                                                 </tr>`;
                         });
                     } else {
