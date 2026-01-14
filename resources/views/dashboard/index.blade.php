@@ -125,7 +125,7 @@
                         </div>
                         <span class="fw-semibold d-block mb-1">Jadwal Mengajar</span>
                         <h3 class="card-title mb-2">{{ $data['today_schedules_count'] ?? 0 }}</h3>
-                        <small class="text-info fw-semibold">Kelas Hari Ini</small>
+                        <small class="text-info fw-semibold">Kelas Hari Ini {{ \Carbon\Carbon::now('Asia/Jakarta')->translatedFormat('l') }}</small>
                     </div>
                 </div>
             </div>

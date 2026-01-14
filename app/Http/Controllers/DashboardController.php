@@ -10,6 +10,8 @@ class DashboardController extends Controller
     {
         $user = auth()->user();
         $data = [];
+        \Carbon\Carbon::setLocale('id');
+
 
         if ($user->role === 'admin') {
             $data['total_teachers'] = \App\Models\Teacher::count();
