@@ -45,6 +45,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(TimeSlotRepositoryInterface::class, TimeSlotRepository::class);
         $this->app->bind(\App\Repositories\Contracts\TeacherAttendanceRepositoryInterface::class, \App\Repositories\Eloquents\TeacherAttendanceRepository::class);
         $this->app->bind(\App\Repositories\Contracts\TeachingJournalRepositoryInterface::class, \App\Repositories\Eloquents\TeachingJournalRepository::class);
+        $this->app->bind(\App\Repositories\Contracts\TeachingMaterialRepositoryInterface::class, \App\Repositories\Eloquents\TeachingMaterialRepository::class);
     }
 
     /**
