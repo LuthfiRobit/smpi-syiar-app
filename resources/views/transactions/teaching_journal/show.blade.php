@@ -29,8 +29,9 @@
                         <label class="form-label text-muted text-uppercase small">Waktu</label>
                         <div>
                             {{ \Carbon\Carbon::parse($journal->date)->translatedFormat('l, d F Y') }} <br>
-                            {{ \Carbon\Carbon::parse($journal->schedule->timeSlot->start_time)->format('H:i') }} -
-                            {{ \Carbon\Carbon::parse($journal->schedule->timeSlot->end_time)->format('H:i') }}
+                            @foreach($siblingJournals as $s)
+                                <span class="badge bg-label-primary">{{ $s->schedule->timeSlot->name }}</span>
+                            @endforeach
                         </div>
                     </div>
                     <div class="divider">

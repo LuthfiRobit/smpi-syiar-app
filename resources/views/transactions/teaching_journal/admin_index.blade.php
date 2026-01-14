@@ -14,7 +14,7 @@
                     <input type="date" name="date" class="form-control form-control-sm" value="{{ $date }}"
                         onchange="this.form.submit()" style="width: 180px;">
                 </form>
-                <span class="badge bg-label-primary">{{ count($journals) }} Jurnal</span>
+                <span class="badge bg-label-primary">{{ count($groupedJournals) }} Jurnal</span>
             </div>
         </div>
         <div class="table-responsive text-nowrap">
@@ -23,6 +23,7 @@
                     <tr>
                         <th width="5%">Aksi</th>
                         <th>Waktu</th>
+                        <th>Status</th>
                         <th>Guru</th>
                         <th>Kelas</th>
                         <th>Mata Pelajaran</th>
@@ -30,28 +31,67 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($journals as $journal)
+                    @forelse($groupedJournals as $group)
                         <tr>
                             <td>
-                                <a href="{{ route('transactions.journals.show', $journal->id) }}"
-                                    class="btn btn-sm btn-icon btn-outline-info" data-bs-toggle="tooltip" title="Lihat Detail">
-                                    <i class="bx bx-show"></i>
-                                </a>
+                                <div class="dropdown">
+                                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                        <i class="bx bx-dots-vertical-rounded"></i>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="{{ route('transactions.journals.show', $group['id']) }}">
+                                            <i class="bx bx-show-alt me-1"></i> Detail
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <h6 class="dropdown-header">Ubah Status (Sesi Ini)</h6>
+                                        <form action="{{ route('transactions.journals.update-status', $group['id']) }}" method="POST">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" name="status" value="Approved" class="dropdown-item text-success">
+                                                <i class="bx bx-check-circle me-1"></i> Set Approved
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('transactions.journals.update-status', $group['id']) }}" method="POST">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" name="status" value="Submitted" class="dropdown-item text-info">
+                                                <i class="bx bx-send me-1"></i> Set Submitted
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('transactions.journals.update-status', $group['id']) }}" method="POST">
+                                            @csrf
+                                            @method('PATCH')
+                                            <button type="submit" name="status" value="Draft" class="dropdown-item text-secondary">
+                                                <i class="bx bx-pencil me-1"></i> Set Draft
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
                             </td>
                             <td>
+                                <span class="fw-bold">{{ implode(' - ', $group['time_slot_names']) }}</span><br>
                                 <span class="badge bg-label-secondary">
-                                    {{ \Carbon\Carbon::parse($journal->schedule->timeSlot->start_time)->format('H:i') }} -
-                                    {{ \Carbon\Carbon::parse($journal->schedule->timeSlot->end_time)->format('H:i') }}
+                                    {{ \Carbon\Carbon::parse($group['start_time'])->format('H:i') }} -
+                                    {{ \Carbon\Carbon::parse($group['end_time'])->format('H:i') }}
                                 </span>
                             </td>
-                            <td><strong>{{ $journal->schedule->teacher->name }}</strong></td>
-                            <td>{{ $journal->schedule->classroom->name }}</td>
-                            <td>{{ $journal->schedule->subject->name }}</td>
-                            <td>{{ Str::limit($journal->topic, 30) }}</td>
+                            <td>
+                                @if($group['status'] == 'Approved')
+                                    <span class="badge bg-label-success">Approved</span>
+                                @elseif($group['status'] == 'Submitted')
+                                    <span class="badge bg-label-info">Submitted</span>
+                                @else
+                                    <span class="badge bg-label-secondary">Draft</span>
+                                @endif
+                            </td>
+                            <td><strong>{{ $group['teacher_name'] }}</strong></td>
+                            <td>{{ $group['classroom_name'] }}</td>
+                            <td>{{ $group['subject_name'] }}</td>
+                            <td>{{ Str::limit($group['topic'], 30) }}</td>
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="6" class="text-center">Tidak ada data jurnal untuk tanggal ini.</td>
+                            <td colspan="7" class="text-center">Tidak ada data jurnal untuk tanggal ini.</td>
                         </tr>
                     @endforelse
                 </tbody>

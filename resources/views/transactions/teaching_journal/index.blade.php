@@ -28,25 +28,46 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse($schedules as $schedule)
+                    @forelse($groupedSchedules as $group)
                         <tr>
-                            <td>{{ $schedule->timeSlot->start_time }} - {{ $schedule->timeSlot->end_time }}</td>
-                            <td>{{ $schedule->classroom->name }}</td>
-                            <td>{{ $schedule->subject->name }}</td>
                             <td>
-                                @if($schedule->journal)
-                                    <span class="badge bg-label-success">Sudah Diisi</span>
+                                <span class="fw-bold">{{ implode(' - ', $group['time_slot_names']) }}</span><br>
+                                <span class="badge bg-label-secondary">
+                                    {{ \Carbon\Carbon::parse($group['start_time'])->format('H:i') }} -
+                                    {{ \Carbon\Carbon::parse($group['end_time'])->format('H:i') }}
+                                </span>
+                            </td>
+                            <td>{{ $group['classroom_name'] }}</td>
+                            <td>{{ $group['subject_name'] }}</td>
+                            <td>
+                                @if($group['is_filled'])
+                                    @if($group['journal_status'] == 'Approved')
+                                        <span class="badge bg-label-success">Disetujui</span>
+                                    @elseif($group['journal_status'] == 'Submitted')
+                                        <span class="badge bg-label-info">Menunggu Konfirmasi</span>
+                                    @else
+                                        <span class="badge bg-label-primary">Draft</span>
+                                    @endif
                                 @else
                                     <span class="badge bg-label-warning">Belum Diisi</span>
                                 @endif
                             </td>
                             <td>
-                                @if($schedule->journal)
-                                    <button class="btn btn-secondary btn-sm" disabled>Sudah Diisi</button>
+                                @if($group['is_filled'])
+                                    @if($group['journal_status'] == 'Draft' || $group['journal_status'] == 'Submitted')
+                                        <a href="{{ route('transactions.journals.edit', $group['journal_id']) }}"
+                                            class="btn btn-warning btn-sm">
+                                            <i class="bx bx-edit"></i> Edit
+                                        </a>
+                                    @else
+                                        <button class="btn btn-secondary btn-sm" disabled>
+                                            <i class="bx bx-lock"></i> Terkunci
+                                        </button>
+                                    @endif
                                 @else
-                                    <a href="{{ route('transactions.journals.create', $schedule->id) }}"
+                                    <a href="{{ route('transactions.journals.create', implode(',', $group['schedule_ids'])) }}"
                                         class="btn btn-primary btn-sm">
-                                        Isi Jurnal
+                                        <i class="bx bx-pencil"></i> Isi Jurnal
                                     </a>
                                 @endif
                             </td>

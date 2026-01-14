@@ -78,7 +78,10 @@
                         <tbody>
                             @foreach($journals as $journal)
                                 <tr>
-                                    <td>{{ \Carbon\Carbon::parse($journal->date)->format('d/m/Y') }}</td>
+                                    <td>
+                                        {{ \Carbon\Carbon::parse($journal->date)->format('d/m/Y') }}<br>
+                                        <small class="text-muted">{{ $journal->schedule->timeSlot->name }}</small>
+                                    </td>
                                     <td>{{ $journal->schedule->teacher->name }}</td>
                                     <td><span class="badge bg-label-primary">{{ $journal->schedule->classroom->name }}</span>
                                     </td>
