@@ -66,51 +66,6 @@ class StudentSeeder extends Seeder
                 'phone' => '082111111005',
                 'address' => 'Jl. Gatot Subroto No. 5, Jakarta Selatan',
             ],
-            [
-                'nis' => '2024006',
-                'nisn' => '0123456794',
-                'name' => 'Nur Aini',
-                'email' => 'nur.aini.2024006@smpi-syiar.sch.id',
-                'gender' => 'P',
-                'phone' => '082111111006',
-                'address' => 'Jl. Rasuna Said No. 6, Jakarta Selatan',
-            ],
-            [
-                'nis' => '2024007',
-                'nisn' => '0123456795',
-                'name' => 'Fajar Nugroho',
-                'email' => 'fajar.nugroho.2024007@smpi-syiar.sch.id',
-                'gender' => 'L',
-                'phone' => '082111111007',
-                'address' => 'Jl. Pancoran No. 7, Jakarta Selatan',
-            ],
-            [
-                'nis' => '2024008',
-                'nisn' => '0123456796',
-                'name' => 'Laila Maharani',
-                'email' => 'laila.maharani.2024008@smpi-syiar.sch.id',
-                'gender' => 'P',
-                'phone' => '082111111008',
-                'address' => 'Jl. Cikini No. 8, Jakarta Pusat',
-            ],
-            [
-                'nis' => '2024009',
-                'nisn' => '0123456797',
-                'name' => 'Dimas Saputra',
-                'email' => 'dimas.saputra.2024009@smpi-syiar.sch.id',
-                'gender' => 'L',
-                'phone' => '082111111009',
-                'address' => 'Jl. Menteng No. 9, Jakarta Pusat',
-            ],
-            [
-                'nis' => '2024010',
-                'nisn' => '0123456798',
-                'name' => 'Ayu Lestari',
-                'email' => 'ayu.lestari.2024010@smpi-syiar.sch.id',
-                'gender' => 'P',
-                'phone' => '082111111010',
-                'address' => 'Jl. Salemba No. 10, Jakarta Pusat',
-            ],
 
             // Kelas VIII
             [
@@ -157,51 +112,6 @@ class StudentSeeder extends Seeder
                 'gender' => 'L',
                 'phone' => '082111111015',
                 'address' => 'Jl. Kuningan No. 15, Jakarta Selatan',
-            ],
-            [
-                'nis' => '2023006',
-                'nisn' => '0123456804',
-                'name' => 'Indah Permata',
-                'email' => 'indah.permata.2023006@smpi-syiar.sch.id',
-                'gender' => 'P',
-                'phone' => '082111111016',
-                'address' => 'Jl. Senopati No. 16, Jakarta Selatan',
-            ],
-            [
-                'nis' => '2023007',
-                'nisn' => '0123456805',
-                'name' => 'Yoga Pratama',
-                'email' => 'yoga.pratama.2023007@smpi-syiar.sch.id',
-                'gender' => 'L',
-                'phone' => '082111111017',
-                'address' => 'Jl. Blok M No. 17, Jakarta Selatan',
-            ],
-            [
-                'nis' => '2023008',
-                'nisn' => '0123456806',
-                'name' => 'Rina Wulandari',
-                'email' => 'rina.wulandari.2023008@smpi-syiar.sch.id',
-                'gender' => 'P',
-                'phone' => '082111111018',
-                'address' => 'Jl. Fatmawati No. 18, Jakarta Selatan',
-            ],
-            [
-                'nis' => '2023009',
-                'nisn' => '0123456807',
-                'name' => 'Irfan Maulana',
-                'email' => 'irfan.maulana.2023009@smpi-syiar.sch.id',
-                'gender' => 'L',
-                'phone' => '082111111019',
-                'address' => 'Jl. Cilandak No. 19, Jakarta Selatan',
-            ],
-            [
-                'nis' => '2023010',
-                'nisn' => '0123456808',
-                'name' => 'Dina Mariana',
-                'email' => 'dina.mariana.2023010@smpi-syiar.sch.id',
-                'gender' => 'P',
-                'phone' => '082111111020',
-                'address' => 'Jl. Lebak Bulus No. 20, Jakarta Selatan',
             ],
 
             // Kelas IX
@@ -250,57 +160,12 @@ class StudentSeeder extends Seeder
                 'phone' => '082111111025',
                 'address' => 'Jl. Ragunan No. 25, Jakarta Selatan',
             ],
-            [
-                'nis' => '2022006',
-                'nisn' => '0123456814',
-                'name' => 'Nina Safitri',
-                'email' => 'nina.safitri.2022006@smpi-syiar.sch.id',
-                'gender' => 'P',
-                'phone' => '082111111026',
-                'address' => 'Jl. Jagakarsa No. 26, Jakarta Selatan',
-            ],
-            [
-                'nis' => '2022007',
-                'nisn' => '0123456815',
-                'name' => 'Eko Prasetyo',
-                'email' => 'eko.prasetyo.2022007@smpi-syiar.sch.id',
-                'gender' => 'L',
-                'phone' => '082111111027',
-                'address' => 'Jl. Lenteng Agung No. 27, Jakarta Selatan',
-            ],
-            [
-                'nis' => '2022008',
-                'nisn' => '0123456816',
-                'name' => 'Sari Rahayu',
-                'email' => 'sari.rahayu.2022008@smpi-syiar.sch.id',
-                'gender' => 'P',
-                'phone' => '082111111028',
-                'address' => 'Jl. Pasar Rebo No. 28, Jakarta Timur',
-            ],
-            [
-                'nis' => '2022009',
-                'nisn' => '0123456817',
-                'name' => 'Agus Santoso',
-                'email' => 'agus.santoso.2022009@smpi-syiar.sch.id',
-                'gender' => 'L',
-                'phone' => '082111111029',
-                'address' => 'Jl. Cibubur No. 29, Jakarta Timur',
-            ],
-            [
-                'nis' => '2022010',
-                'nisn' => '0123456818',
-                'name' => 'Tari Wulandari',
-                'email' => 'tari.wulandari.2022010@smpi-syiar.sch.id',
-                'gender' => 'P',
-                'phone' => '082111111030',
-                'address' => 'Jl. Cipayung No. 30, Jakarta Timur',
-            ],
         ];
 
         foreach ($students as $student) {
             $this->studentRepository->create($student);
         }
 
-        $this->command->info('✓ 30 students created successfully with User accounts (10 per grade: VII, VIII, IX)');
+        $this->command->info('✓ 15 students created successfully with User accounts (10 per grade: VII, VIII, IX)');
     }
 }

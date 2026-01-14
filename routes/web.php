@@ -79,6 +79,9 @@ Route::middleware('auth')->group(function () {
         Route::delete('/students/{id}', [StudentController::class, 'destroy'])->name('students.destroy');
         Route::post('/students/import', [StudentController::class, 'import'])->name('students.import');
         Route::post('/students/{id}/reset-password', [StudentController::class, 'resetPassword'])->name('students.reset-password');
+
+        // Teaching Material Types
+        Route::resource('teaching-material-types', \App\Http\Controllers\Masters\TeachingMaterialTypeController::class)->except(['show', 'create', 'edit']);
     });
 
     // Admin & Teacher Routes
@@ -123,9 +126,19 @@ Route::middleware('auth')->group(function () {
         // Teaching Journal
         Route::get('/journals', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'index'])->name('journals.index');
         Route::get('/journals/monitoring', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'adminIndex'])->name('journals.admin-index');
-        Route::get('/journals/create/{scheduleId}', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'create'])->name('journals.create');
+        Route::get('/journals/create/{scheduleIds}', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'create'])->name('journals.create');
         Route::post('/journals', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'store'])->name('journals.store');
+        Route::get('/journals/{id}/edit', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'edit'])->name('journals.edit');
+        Route::put('/journals/{id}', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'update'])->name('journals.update');
+        Route::patch('/journals/{id}/status', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'updateStatus'])->name('journals.update-status');
         Route::get('/journals/{id}', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'show'])->name('journals.show');
+
+        // Teaching Materials
+        Route::get('/teaching-materials', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'index'])->name('teaching-materials.index');
+        Route::post('/teaching-materials', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'store'])->name('teaching-materials.store');
+        Route::get('/teaching-materials/monitoring', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'adminIndex'])->name('teaching-materials.admin-index');
+        Route::get('/teaching-materials/monitoring/data', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'adminData'])->name('teaching-materials.admin-data');
+        Route::get('/teaching-materials/monitoring/detail', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'adminDetail'])->name('teaching-materials.admin-detail');
     });
 
     // Report Routes

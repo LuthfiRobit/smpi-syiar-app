@@ -15,9 +15,18 @@ class UserSeeder extends Seeder
     {
         // Admin User
         User::create([
-            'name' => 'Administrator',
-            'username' => 'admin',
-            'email' => 'admin@smpi-syiar.sch.id',
+            'name' => 'Administrator 1',
+            'username' => 'admin1',
+            'email' => 'admin1@smpi-syiar.sch.id',
+            'password' => Hash::make('admin123'),
+            'role' => 'admin',
+            'is_active' => true,
+        ]);
+
+        User::create([
+            'name' => 'Administrator 2',
+            'username' => 'admin2',
+            'email' => 'admin2@smpi-syiar.sch.id',
             'password' => Hash::make('admin123'),
             'role' => 'admin',
             'is_active' => true,

@@ -61,6 +61,11 @@
                             <div>Jam Pelajaran</div>
                         </a>
                     </li>
+                    <li class="menu-item {{ request()->routeIs('masters.teaching-material-types.*') ? 'active' : '' }}">
+                        <a href="{{ route('masters.teaching-material-types.index') }}" class="menu-link">
+                            <div>Jenis Perangkat</div>
+                        </a>
+                    </li>
                 </ul>
             </li>
         @endif
@@ -74,6 +79,7 @@
                     <div>Jadwal Mengajar</div>
                 </a>
             </li>
+            
 
             <!-- Absensi -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Absensi</span></li>
@@ -91,6 +97,15 @@
                     class="menu-link">
                     <i class="menu-icon tf-icons bx bx-book-content"></i>
                     <div>{{ auth()->user()->role === 'admin' ? 'Monitoring Jurnal' : 'Jurnal Mengajar' }}</div>
+                </a>
+            </li>
+
+            <!-- Perangkat Ajar -->
+            <li class="menu-item {{ request()->routeIs('transactions.teaching-materials.*') ? 'active' : '' }}">
+                <a href="{{ auth()->user()->role === 'admin' ? route('transactions.teaching-materials.admin-index') : route('transactions.teaching-materials.index') }}"
+                    class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-folder-open"></i>
+                    <div>{{ auth()->user()->role === 'admin' ? 'Monitoring Perangkat' : 'Perangkat Ajar' }}</div>
                 </a>
             </li>
 

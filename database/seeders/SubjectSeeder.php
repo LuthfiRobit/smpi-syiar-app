@@ -13,16 +13,19 @@ class SubjectSeeder extends Seeder
     public function run(): void
     {
         $subjects = [
+            ['code' => 'TLM', 'name' => 'Ta\'lim'],
+            ['code' => 'BIND', 'name' => 'Bahasa Indonesia'],
+            ['code' => 'BARB', 'name' => 'Bahasa Arab'],
+            ['code' => 'BING', 'name' => 'Bahasa Inggris'],
             ['code' => 'MTK', 'name' => 'Matematika'],
             ['code' => 'IPA', 'name' => 'Ilmu Pengetahuan Alam'],
             ['code' => 'IPS', 'name' => 'Ilmu Pengetahuan Sosial'],
-            ['code' => 'BIND', 'name' => 'Bahasa Indonesia'],
-            ['code' => 'BING', 'name' => 'Bahasa Inggris'],
-            ['code' => 'PJOK', 'name' => 'Pendidikan Jasmani Olahraga dan Kesehatan'],
             ['code' => 'PAI', 'name' => 'Pendidikan Agama Islam'],
-            ['code' => 'PKN', 'name' => 'Pendidikan Kewarganegaraan'],
-            ['code' => 'SBK', 'name' => 'Seni Budaya dan Keterampilan'],
-            ['code' => 'PRAKARYA', 'name' => 'Prakarya'],
+            ['code' => 'PJOK', 'name' => 'Pendidikan Jasmani Olahraga dan Kesehatan'],
+            ['code' => 'ASW', 'name' => 'Aswaja'],
+            ['code' => 'PRAK', 'name' => 'Prakarya'],
+            ['code' => 'SBY', 'name' => 'Seni Budaya'],
+            ['code' => 'INF', 'name' => 'Informatika'],
         ];
 
         foreach ($subjects as $subject) {
