@@ -28,7 +28,7 @@ class ReportController extends Controller
 
         // If Teacher, only see own data
         if ($user->role === 'teacher') {
-            $teacher = Teacher::where('user_id', $user->id)->firstOrFail();
+            $teacher = Teacher::where('user_id', '=', $user->id)->firstOrFail();
             $query->where('id', $teacher->id);
         }
 
@@ -37,6 +37,14 @@ class ReportController extends Controller
                 $q->whereMonth('date', $month)
                     ->whereYear('date', $year)
                     ->orderBy('date');
+            },
+            'teachingJournals' => function ($q) use ($month, $year) {
+                $q->whereMonth('date', $month)
+                    ->whereYear('date', $year);
+            },
+            'picketAttendances' => function ($q) use ($month, $year) {
+                $q->whereMonth('date', $month)
+                    ->whereYear('date', $year);
             }
         ])->get();
 
@@ -48,6 +56,8 @@ class ReportController extends Controller
                 'sakit' => $teacher->attendances->where('status', 'Sakit')->count(),
                 'alpha' => $teacher->attendances->where('status', 'Alpha')->count(),
                 'telat' => $teacher->attendances->where('status', 'Telat')->count(),
+                'mengajar' => $teacher->teachingJournals->count(),
+                'piket' => $teacher->picketAttendances->where('status', 'Hadir')->count(),
             ];
         }
 
@@ -58,7 +68,7 @@ class ReportController extends Controller
     {
         // Dropdowns
         $academicYears = \App\Models\AcademicYear::all();
-        $activeYearId = \App\Models\AcademicYear::where('is_active', true)->value('id');
+        $activeYearId = \App\Models\AcademicYear::where('is_active', '=', true)->value('id');
         $academicYearId = $request->input('academic_year_id', $activeYearId);
 
         $classrooms = Classroom::where('academic_year_id', $academicYearId)->get();
@@ -105,7 +115,7 @@ class ReportController extends Controller
             ->orderBy('date', 'desc');
 
         if ($user->role === 'teacher') {
-            $teacher = Teacher::where('user_id', $user->id)->firstOrFail();
+            $teacher = Teacher::where('user_id', '=', $user->id)->firstOrFail();
             $query->whereHas('schedule', function ($q) use ($teacher) {
                 $q->where('teacher_id', $teacher->id);
             });

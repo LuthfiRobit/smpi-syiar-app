@@ -79,7 +79,15 @@
                     <div>Jadwal Mengajar</div>
                 </a>
             </li>
-            
+
+            @if(auth()->user()->role === 'admin')
+                <li class="menu-item {{ request()->routeIs('masters.picket-schedules.*') ? 'active' : '' }}">
+                    <a href="{{ route('masters.picket-schedules.index') }}" class="menu-link">
+                        <i class="menu-icon tf-icons bx bx-calendar"></i>
+                        <div>Jadwal Piket</div>
+                    </a>
+                </li>
+            @endif
 
             <!-- Absensi -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Absensi</span></li>
@@ -87,6 +95,13 @@
                 <a href="{{ route('transactions.teacher-attendance.index') }}" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-user-check"></i>
                     <div>Absensi Guru</div>
+                </a>
+            </li>
+
+            <li class="menu-item {{ request()->routeIs('transactions.picket-attendance.*') ? 'active' : '' }}">
+                <a href="{{ route('transactions.picket-attendance.index') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-shield-quarter"></i>
+                    <div>Absensi Piket</div>
                 </a>
             </li>
 

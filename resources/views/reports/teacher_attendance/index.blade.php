@@ -86,6 +86,8 @@
                             <th class="text-center">Sakit</th>
                             <th class="text-center">Alpha</th>
                             <th class="text-center">Telat</th>
+                            <th class="text-center">Mengajar</th>
+                            <th class="text-center">Piket</th>
                             <th class="text-center">Total %</th>
                         </tr>
                     </thead>
@@ -108,6 +110,10 @@
                                         class="badge bg-label-danger">{{ $teacher->stats['alpha'] }}</span></td>
                                 <td class="text-center"><span
                                         class="badge bg-label-secondary">{{ $teacher->stats['telat'] }}</span></td>
+                                <td class="text-center"><span
+                                        class="badge bg-label-primary">{{ $teacher->stats['mengajar'] }}</span></td>
+                                <td class="text-center"><span
+                                        class="badge bg-label-info text-dark">{{ $teacher->stats['piket'] }}</span></td>
                                 <td class="text-center"><strong>{{ $percentage }}%</strong></td>
                             </tr>
                         @endforeach
@@ -120,7 +126,7 @@
                     <div class="col-8"></div>
                     <div class="col-4 text-center">
                         <p class="mb-5">
-                            Tasikmalaya, {{ \Carbon\Carbon::now()->isoFormat('D MMMM Y') }}<br>
+                            Probolinggo, {{ \Carbon\Carbon::now()->isoFormat('D MMMM Y') }}<br>
                             Kepala Sekolah
                         </p>
                         <br><br>

@@ -152,7 +152,7 @@
                         <div class="col-8"></div>
                         <div class="col-4 text-center">
                             <p class="mb-5">
-                                Tasikmalaya, {{ \Carbon\Carbon::now()->isoFormat('D MMMM Y') }}<br>
+                                Probolinggo, {{ \Carbon\Carbon::now()->isoFormat('D MMMM Y') }}<br>
                                 Kepala Sekolah
                             </p>
                             <br><br>

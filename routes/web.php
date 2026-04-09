@@ -9,6 +9,8 @@ use App\Http\Controllers\Masters\SubjectController;
 use App\Http\Controllers\Masters\TimeSlotController;
 use App\Http\Controllers\Masters\TeacherController;
 use App\Http\Controllers\Masters\StudentController;
+use App\Http\Controllers\Masters\PicketScheduleController;
+use App\Http\Controllers\Transactions\PicketAttendanceController;
 
 // Guest Routes (Login)
 Route::middleware('guest')->group(function () {
@@ -82,6 +84,11 @@ Route::middleware('auth')->group(function () {
 
         // Teaching Material Types
         Route::resource('teaching-material-types', \App\Http\Controllers\Masters\TeachingMaterialTypeController::class)->except(['show', 'create', 'edit']);
+
+        // Picket Schedules
+        Route::get('/picket-schedules', [PicketScheduleController::class, 'index'])->name('picket-schedules.index');
+        Route::post('/picket-schedules', [PicketScheduleController::class, 'store'])->name('picket-schedules.store');
+        Route::delete('/picket-schedules/{id}', [PicketScheduleController::class, 'destroy'])->name('picket-schedules.destroy');
     });
 
     // Admin & Teacher Routes
@@ -122,6 +129,11 @@ Route::middleware('auth')->group(function () {
         Route::post('/teacher-attendance', [\App\Http\Controllers\Transactions\TeacherAttendanceController::class, 'store'])->name('teacher-attendance.store');
         Route::put('/teacher-attendance/{id}', [\App\Http\Controllers\Transactions\TeacherAttendanceController::class, 'update'])->name('teacher-attendance.update');
         Route::patch('/teacher-attendance/{id}/checkout', [\App\Http\Controllers\Transactions\TeacherAttendanceController::class, 'checkout'])->name('teacher-attendance.checkout');
+
+        // Picket Attendance
+        Route::get('/picket-attendance', [PicketAttendanceController::class, 'index'])->name('picket-attendance.index');
+        Route::post('/picket-attendance', [PicketAttendanceController::class, 'store'])->name('picket-attendance.store');
+        Route::patch('/picket-attendance/{id}', [PicketAttendanceController::class, 'update'])->name('picket-attendance.update');
 
         // Teaching Journal
         Route::get('/journals', [\App\Http\Controllers\Transactions\TeachingJournalController::class, 'index'])->name('journals.index');

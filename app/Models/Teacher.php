@@ -55,6 +55,22 @@ class Teacher extends Model
      */
     public function teachingJournals()
     {
-        return $this->hasMany(TeachingJournal::class);
+        return $this->hasManyThrough(TeachingJournal::class, Schedule::class);
+    }
+
+    /**
+     * Relasi ke Picket Schedules
+     */
+    public function picketSchedules()
+    {
+        return $this->hasMany(PicketSchedule::class);
+    }
+
+    /**
+     * Relasi ke Picket Attendances
+     */
+    public function picketAttendances()
+    {
+        return $this->hasMany(PicketAttendance::class);
     }
 }
