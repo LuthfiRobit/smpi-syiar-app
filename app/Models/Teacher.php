@@ -73,4 +73,12 @@ class Teacher extends Model
     {
         return $this->hasMany(PicketAttendance::class);
     }
+
+    /**
+     * Relasi ke Teaching Materials
+     */
+    public function teachingMaterials()
+    {
+        return $this->hasMany(TeachingMaterial::class);
+    }
 }

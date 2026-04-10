@@ -28,6 +28,7 @@ class TeachingMaterialRepository implements TeachingMaterialRepositoryInterface
         return $this->model->with(['type', 'subject'])
             ->where('teacher_id', $teacherId)
             ->where('academic_year_id', $yearId)
+            ->orderBy('grade_level')
             ->get();
     }
 
@@ -54,12 +55,12 @@ class TeachingMaterialRepository implements TeachingMaterialRepositoryInterface
         return $material->delete();
     }
 
+    /**
+     * Per-teacher summary for admin monitoring table.
+     * Returns teachers with counts of approved/pending/rejected modules.
+     */
     public function getSummaryByYear($yearId)
     {
-        // This is complex. We need to list all teachers and their progress.
-        // For now, let's return just the materials with details to be processed in controller/view or enhanced later.
-        // Better approach: Get all teachers, load their materials for this year.
-
         $teachers = \App\Models\Teacher::with([
             'teachingMaterials' => function ($q) use ($yearId) {
                 $q->where('academic_year_id', $yearId);
@@ -69,5 +70,65 @@ class TeachingMaterialRepository implements TeachingMaterialRepositoryInterface
         })->get();
 
         return $teachers;
+    }
+
+    /**
+     * Flat paginated module list for the Admin "Per Modul" tab.
+     */
+    public function getModulesForAdmin($yearId, $teacherId = null, $gradeLevel = null, $subjectId = null, $status = null)
+    {
+        $query = $this->model
+            ->with(['teacher', 'type', 'subject'])
+            ->where('academic_year_id', $yearId);
+
+        if ($teacherId) {
+            $query->where('teacher_id', $teacherId);
+        }
+
+        if ($gradeLevel) {
+            $query->where('grade_level', $gradeLevel);
+        }
+
+        if ($subjectId) {
+            $query->where('subject_id', $subjectId);
+        }
+
+        if ($status) {
+            $query->where('status', $status);
+        }
+
+        return $query->orderBy('grade_level')->orderBy('created_at', 'desc')->get();
+    }
+
+    /**
+     * Approve or reject a single module.
+     */
+    public function updateStatus($id, $status, $rejectionNote = null)
+    {
+        $material = $this->find($id);
+        $material->status = $status;
+        $material->rejection_note = ($status === 'rejected') ? $rejectionNote : null;
+        $material->save();
+        return $material;
+    }
+
+    /**
+     * Returns teacher materials grouped by grade_level then subject for the teacher view.
+     */
+    public function getByTeacherAndYearGrouped($teacherId, $yearId)
+    {
+        $materials = $this->model
+            ->with(['type', 'subject'])
+            ->where('teacher_id', $teacherId)
+            ->where('academic_year_id', $yearId)
+            ->orderBy('grade_level')
+            ->get();
+
+        // First group by grade_level, then by subject name
+        return $materials->groupBy('grade_level')->map(function ($gradeItems) {
+            return $gradeItems->groupBy(function ($item) {
+                return $item->subject ? $item->subject->name : 'Umum';
+            });
+        });
     }
 }

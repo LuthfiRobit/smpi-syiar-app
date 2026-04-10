@@ -151,6 +151,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/teaching-materials/monitoring', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'adminIndex'])->name('teaching-materials.admin-index');
         Route::get('/teaching-materials/monitoring/data', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'adminData'])->name('teaching-materials.admin-data');
         Route::get('/teaching-materials/monitoring/detail', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'adminDetail'])->name('teaching-materials.admin-detail');
+        Route::get('/teaching-materials/monitoring/modules', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'adminModules'])->name('teaching-materials.admin-modules');
+        // Parameterized routes must come after static paths
+        Route::put('/teaching-materials/{id}', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'update'])->name('teaching-materials.update');
+        Route::delete('/teaching-materials/{id}', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'destroy'])->name('teaching-materials.destroy');
+        Route::post('/teaching-materials/{id}/approve', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'approve'])->name('teaching-materials.approve');
+        Route::post('/teaching-materials/{id}/reject', [\App\Http\Controllers\Transactions\TeachingMaterialController::class, 'reject'])->name('teaching-materials.reject');
     });
 
     // Report Routes
