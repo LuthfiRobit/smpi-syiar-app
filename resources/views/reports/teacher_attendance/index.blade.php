@@ -38,49 +38,43 @@
                 </div>
             </form>
 
-            <div class="mb-4 print-only">
-                <div class="row align-items-center mb-3">
+            <div class="mb-1 print-only">
+                <div class="row align-items-center mb-2">
                     <div class="col-2 text-center">
                         @if($school_identity && $school_identity->logo_path)
-                            <img src="{{ asset('storage/' . $school_identity->logo_path) }}" alt="logo" height="80">
+                            <img src="{{ asset('storage/' . $school_identity->logo_path) }}" alt="logo" height="60">
                         @endif
                     </div>
                     <div class="col-8 text-center">
-                        <h2 class="mb-1">{{ $school_identity->name ?? 'SMP Islam Syiar' }}</h2>
-                        <p class="mb-0">{{ $school_identity->address ?? 'Alamat Sekolah' }}</p>
-                        <p class="mb-0">Telp: {{ $school_identity->phone ?? '-' }} | Website:
-                            {{ $school_identity->website ?? '-' }}
-                        </p>
-                        <p class="mb-0">Email: {{ $school_identity->email ?? '-' }}</p>
+                        <p class="mb-1 fw-bold">YAYASAN BISYRIL ARIFIN</p>
+                        <p class="mb-1 fw-bold">SMP ISLAM “ BISYRIL ARIFIN “</p>
+                        <p class="mb-1 fw-bold">SOGAAN PAKUNIRAN PROBOLINGGO</p>
+                        <p class="mb-1">NSS : 202052024003/20570916 Terakreditasi : B</p>
+                        <p class="mb-1">Sekertariat : Jl PP Bisyril Arifin - Sogaan – Pakuniran –Utara Lapangan Kode Post 67292.082359386122</p>
                     </div>
                     <div class="col-2"></div>
                 </div>
-                <hr style="border: 2px solid #000;">
-                <h4 class="text-center mb-4">LAPORAN ABSENSI GURU</h4>
+                <hr style="border: 2px solid #000; margin: 0.35rem 0 0.5rem;">
+                <h4 class="text-center mb-0">LAPORAN ABSENSI GURU</h4>
                 <div class="row">
-                    <div class="col-6">
-                        <table class="table table-borderless table-sm">
+                    <div class="col-12">
+                        <table class="table table-borderless table-sm mb-0">
                             <tr>
-                                <td width="100">Bulan</td>
+                                <td class="fw-bold" width="100">Bulan / Tahun</td>
                                 <td width="10">:</td>
-                                <td>{{ \Carbon\Carbon::create()->month($month)->isoFormat('MMMM') }}</td>
-                            </tr>
-                            <tr>
-                                <td>Tahun</td>
-                                <td>:</td>
-                                <td>{{ $year }}</td>
+                                <td>{{ \Carbon\Carbon::create()->month($month)->isoFormat('MMMM') }} {{ $year }}</td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
 
-            <div class="table-responsive text-nowrap">
+            <div class="table-responsive text-nowrap mt-0">
                 <table class="table table-bordered table-hover">
                     <thead class="table-light">
                         <tr>
                             <th>Nama Guru</th>
-                            <th>NIP</th>
+                            <th>NIY</th>
                             <th class="text-center">Hadir</th>
                             <th class="text-center">Izin</th>
                             <th class="text-center">Sakit</th>
@@ -121,7 +115,7 @@
                 </table>
             </div>
 
-            <div class="mt-5 print-only">
+            <div class="mt-1 print-only signature-block">
                 <div class="row">
                     <div class="col-8"></div>
                     <div class="col-4 text-center">
@@ -129,11 +123,11 @@
                             Probolinggo, {{ \Carbon\Carbon::now()->isoFormat('D MMMM Y') }}<br>
                             Kepala Sekolah
                         </p>
-                        <br><br>
+                        <div class="mb-2"></div>
                         <p class="fw-bold text-decoration-underline mb-0">
                             {{ $school_identity->headmaster_name ?? 'Kepala Sekolah' }}
                         </p>
-                        <small>NIP. {{ $school_identity->headmaster_nip ?? '-' }}</small>
+                        <small>NIY. {{ $school_identity->headmaster_nip ?? '-' }}</small>
                     </div>
                 </div>
             </div>
@@ -183,6 +177,65 @@
 
         .print-only {
             display: none;
+        }
+
+        @media print {
+            @page {
+                size: landscape;
+                margin: 10mm;
+            }
+
+            .table {
+                font-size: 0.78rem;
+                border-collapse: collapse;
+            }
+
+            .table th,
+            .table td {
+                padding: 0.28rem 0.35rem !important;
+                vertical-align: middle !important;
+            }
+
+            .print-only .fw-bold,
+            .print-only p {
+                margin-bottom: 0.12rem;
+                line-height: 1.05;
+            }
+
+            .print-only h4 {
+                margin-bottom: 0.4rem;
+                line-height: 1.1;
+                font-size: 1rem;
+            }
+
+            .print-only .row {
+                margin-bottom: 0.15rem;
+            }
+
+            .table-responsive,
+            .table-responsive .table {
+                page-break-inside: auto;
+                break-inside: auto;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .table tbody,
+            .table tr,
+            .table th,
+            .table td {
+                page-break-inside: auto;
+                break-inside: auto;
+            }
+
+            .signature-block {
+                margin-top: 0.7rem;
+                page-break-inside: avoid;
+                page-break-before: avoid;
+            }
+
+            .print-only {
+                display: block !important;
+            }
         }
     </style>
 @endsection

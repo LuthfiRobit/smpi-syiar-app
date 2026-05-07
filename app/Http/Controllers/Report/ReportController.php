@@ -20,8 +20,8 @@ class ReportController extends Controller
         $user = Auth::user();
 
         // Filter Parameters
-        $month = $request->input('month', Carbon::now()->month);
-        $year = $request->input('year', Carbon::now()->year);
+        $month = (int) $request->input('month', Carbon::now()->month);
+        $year = (int) $request->input('year', Carbon::now()->year);
 
         // Base Query
         $query = Teacher::query();
